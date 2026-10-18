@@ -1,0 +1,572 @@
+{
+  "version": "coralbleach-synthetic-v1.0.0",
+  "dataKind": "synthetic",
+  "seed": 42,
+  "horizon": 14,
+  "budget": 8,
+  "splits": {
+    "train": {
+      "reefs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "start": 90,
+      "end": 360
+    },
+    "validation": {
+      "reefs": [
+        8,
+        9
+      ],
+      "start": 435,
+      "end": 525
+    },
+    "test": {
+      "reefs": [
+        10,
+        11
+      ],
+      "start": 600,
+      "end": 690
+    }
+  },
+  "adaptive": {
+    "policy": "adaptive",
+    "log": [
+      {
+        "step": 1,
+        "candidate": {
+          "route": "local",
+          "lag": 0,
+          "model": "additive",
+          "id": "local-0-additive"
+        },
+        "metrics": {
+          "n": 62,
+          "positives": 7,
+          "ap": 0.1556692306217923,
+          "brier": 0.1405027841805893,
+          "bss": -0.045054715601831496,
+          "ece": 0.19666306067803585,
+          "recall20": 0.2857142857142857,
+          "k": 13,
+          "captured": 2,
+          "falseAlarms": 11,
+          "status": "DEFER"
+        },
+        "utility": 0.04608522639589047,
+        "remaining": 7
+      },
+      {
+        "step": 2,
+        "candidate": {
+          "route": "local",
+          "lag": 0,
+          "model": "interaction",
+          "id": "local-0-interaction"
+        },
+        "metrics": {
+          "n": 62,
+          "positives": 7,
+          "ap": 0.15066013918054733,
+          "brier": 0.13998260309631672,
+          "bss": -0.041185627183005113,
+          "ece": 0.19540357278021306,
+          "recall20": 0.14285714285714285,
+          "k": 13,
+          "captured": 1,
+          "falseAlarms": 12,
+          "status": "DEFER"
+        },
+        "utility": 0.04158812307634635,
+        "remaining": 6
+      },
+      {
+        "step": 3,
+        "candidate": {
+          "route": "directional",
+          "lag": 14,
+          "model": "interaction",
+          "id": "directional-14-interaction"
+        },
+        "metrics": {
+          "n": 62,
+          "positives": 7,
+          "ap": 0.21620154298725727,
+          "brier": 0.10074988709791072,
+          "bss": 0.2506259201761102,
+          "ece": 0.06660711936152475,
+          "recall20": 0.42857142857142855,
+          "k": 13,
+          "captured": 3,
+          "falseAlarms": 10,
+          "status": "DEFER"
+        },
+        "utility": 0.15250517556599696,
+        "remaining": 5
+      },
+      {
+        "step": 4,
+        "candidate": {
+          "route": "directional",
+          "lag": 14,
+          "model": "additive",
+          "id": "directional-14-additive"
+        },
+        "metrics": {
+          "n": 62,
+          "positives": 7,
+          "ap": 0.22854096593592393,
+          "brier": 0.09976253293285517,
+          "bss": 0.2579698253675843,
+          "ece": 0.06585519402076223,
+          "recall20": 0.42857142857142855,
+          "k": 13,
+          "captured": 3,
+          "falseAlarms": 10,
+          "status": "DEFER"
+        },
+        "utility": 0.1654886606653439,
+        "remaining": 4
+      },
+      {
+        "step": 5,
+        "candidate": {
+          "route": "neighbor",
+          "lag": 30,
+          "model": "interaction",
+          "id": "neighbor-30-interaction"
+        },
+        "metrics": {
+          "n": 62,
+          "positives": 7,
+          "ap": 0.14417878565435893,
+          "brier": 0.1410251160260908,
+          "bss": -0.0489398013062452,
+          "ece": 0.19507722098298186,
+          "recall20": 0.14285714285714285,
+          "k": 13,
+          "captured": 1,
+          "falseAlarms": 12,
+          "status": "DEFER"
+        },
+        "utility": 0.034650783444717156,
+        "remaining": 3
+      },
+      {
+        "step": 6,
+        "candidate": {
+          "route": "directional",
+          "lag": 7,
+          "model": "interaction",
+          "id": "directional-7-interaction"
+        },
+        "metrics": {
+          "n": 62,
+          "positives": 7,
+          "ap": 0.3576530612244898,
+          "brier": 0.0829748520570435,
+          "bss": 0.38283599912778665,
+          "ece": 0.059083946176596965,
+          "recall20": 0.7142857142857143,
+          "k": 13,
+          "captured": 5,
+          "falseAlarms": 8,
+          "status": "DEFER"
+        },
+        "utility": 0.3043488459606487,
+        "remaining": 2
+      },
+      {
+        "step": 7,
+        "candidate": {
+          "route": "directional",
+          "lag": 7,
+          "model": "additive",
+          "id": "directional-7-additive"
+        },
+        "metrics": {
+          "n": 62,
+          "positives": 7,
+          "ap": 0.3851731601731601,
+          "brier": 0.08216504431400766,
+          "bss": 0.3888593203418541,
+          "ece": 0.05872535802075994,
+          "recall20": 0.7142857142857143,
+          "k": 13,
+          "captured": 5,
+          "falseAlarms": 8,
+          "status": "DEFER"
+        },
+        "utility": 0.3323455664120043,
+        "remaining": 1
+      },
+      {
+        "step": 8,
+        "candidate": {
+          "route": "neighbor",
+          "lag": 7,
+          "model": "interaction",
+          "id": "neighbor-7-interaction"
+        },
+        "metrics": {
+          "n": 62,
+          "positives": 7,
+          "ap": 0.4082140366027834,
+          "brier": 0.10751833145416542,
+          "bss": 0.2002824715886352,
+          "ece": 0.1367363995389163,
+          "recall20": 0.5714285714285714,
+          "k": 13,
+          "captured": 4,
+          "falseAlarms": 9,
+          "status": "DEFER"
+        },
+        "utility": 0.3271075909679174,
+        "remaining": 0
+      }
+    ],
+    "winner": {
+      "route": "directional",
+      "lag": 7,
+      "model": "additive",
+      "id": "directional-7-additive"
+    }
+  },
+  "random": {
+    "policy": "random",
+    "log": [
+      {
+        "step": 1,
+        "candidate": {
+          "route": "neighbor",
+          "lag": 7,
+          "model": "additive",
+          "id": "neighbor-7-additive"
+        },
+        "metrics": {
+          "n": 62,
+          "positives": 7,
+          "ap": 0.44772257797467885,
+          "brier": 0.10647404079376846,
+          "bss": 0.2080498684090718,
+          "ece": 0.13629266692039138,
+          "recall20": 0.5714285714285714,
+          "k": 13,
+          "captured": 4,
+          "falseAlarms": 9,
+          "status": "DEFER"
+        },
+        "utility": 0.36722702419371633,
+        "remaining": 7
+      },
+      {
+        "step": 2,
+        "candidate": {
+          "route": "neighbor",
+          "lag": 0,
+          "model": "additive",
+          "id": "neighbor-0-additive"
+        },
+        "metrics": {
+          "n": 62,
+          "positives": 7,
+          "ap": 0.3846849851051532,
+          "brier": 0.10387192652060764,
+          "bss": 0.22740430189991523,
+          "ece": 0.10709571104773158,
+          "recall20": 0.5714285714285714,
+          "k": 13,
+          "captured": 4,
+          "falseAlarms": 9,
+          "status": "DEFER"
+        },
+        "utility": 0.31132987963530306,
+        "remaining": 6
+      },
+      {
+        "step": 3,
+        "candidate": {
+          "route": "neighbor",
+          "lag": 14,
+          "model": "additive",
+          "id": "neighbor-14-additive"
+        },
+        "metrics": {
+          "n": 62,
+          "positives": 7,
+          "ap": 0.4594610289732241,
+          "brier": 0.11477953711397829,
+          "bss": 0.14627388193685464,
+          "ece": 0.16428308146530574,
+          "recall20": 0.5714285714285714,
+          "k": 13,
+          "captured": 4,
+          "falseAlarms": 9,
+          "status": "DEFER"
+        },
+        "utility": 0.36921464412317384,
+        "remaining": 5
+      },
+      {
+        "step": 4,
+        "candidate": {
+          "route": "local",
+          "lag": 14,
+          "model": "interaction",
+          "id": "local-14-interaction"
+        },
+        "metrics": {
+          "n": 62,
+          "positives": 7,
+          "ap": 0.17319629203090936,
+          "brier": 0.13174332154049193,
+          "bss": 0.020097856224830624,
+          "ece": 0.1810346785878732,
+          "recall20": 0.14285714285714285,
+          "k": 13,
+          "captured": 1,
+          "falseAlarms": 12,
+          "status": "DEFER"
+        },
+        "utility": 0.07111769554308875,
+        "remaining": 4
+      },
+      {
+        "step": 5,
+        "candidate": {
+          "route": "local",
+          "lag": 7,
+          "model": "additive",
+          "id": "local-7-additive"
+        },
+        "metrics": {
+          "n": 62,
+          "positives": 7,
+          "ap": 0.15061262646705917,
+          "brier": 0.13766352997213882,
+          "bss": -0.02393644369969028,
+          "ece": 0.21777897573357685,
+          "recall20": 0.2857142857142857,
+          "k": 13,
+          "captured": 2,
+          "falseAlarms": 11,
+          "status": "DEFER"
+        },
+        "utility": 0.03822506633427439,
+        "remaining": 3
+      },
+      {
+        "step": 6,
+        "candidate": {
+          "route": "directional",
+          "lag": 7,
+          "model": "interaction",
+          "id": "directional-7-interaction"
+        },
+        "metrics": {
+          "n": 62,
+          "positives": 7,
+          "ap": 0.3576530612244898,
+          "brier": 0.0829748520570435,
+          "bss": 0.38283599912778665,
+          "ece": 0.059083946176596965,
+          "recall20": 0.7142857142857143,
+          "k": 13,
+          "captured": 5,
+          "falseAlarms": 8,
+          "status": "DEFER"
+        },
+        "utility": 0.3043488459606487,
+        "remaining": 2
+      },
+      {
+        "step": 7,
+        "candidate": {
+          "route": "neighbor",
+          "lag": 7,
+          "model": "interaction",
+          "id": "neighbor-7-interaction"
+        },
+        "metrics": {
+          "n": 62,
+          "positives": 7,
+          "ap": 0.4082140366027834,
+          "brier": 0.10751833145416542,
+          "bss": 0.2002824715886352,
+          "ece": 0.1367363995389163,
+          "recall20": 0.5714285714285714,
+          "k": 13,
+          "captured": 4,
+          "falseAlarms": 9,
+          "status": "DEFER"
+        },
+        "utility": 0.3271075909679174,
+        "remaining": 1
+      },
+      {
+        "step": 8,
+        "candidate": {
+          "route": "neighbor",
+          "lag": 30,
+          "model": "interaction",
+          "id": "neighbor-30-interaction"
+        },
+        "metrics": {
+          "n": 62,
+          "positives": 7,
+          "ap": 0.14417878565435893,
+          "brier": 0.1410251160260908,
+          "bss": -0.0489398013062452,
+          "ece": 0.19507722098298186,
+          "recall20": 0.14285714285714285,
+          "k": 13,
+          "captured": 1,
+          "falseAlarms": 12,
+          "status": "DEFER"
+        },
+        "utility": 0.034650783444717156,
+        "remaining": 0
+      }
+    ],
+    "winner": {
+      "route": "neighbor",
+      "lag": 14,
+      "model": "additive",
+      "id": "neighbor-14-additive"
+    }
+  },
+  "final": {
+    "adaptive": {
+      "n": 62,
+      "positives": 23,
+      "ap": 0.6210495794549649,
+      "brier": 0.2055875416416218,
+      "bss": 0.13858915109069558,
+      "ece": 0.06312633214486907,
+      "recall20": 0.391304347826087,
+      "k": 13,
+      "captured": 9,
+      "falseAlarms": 4,
+      "status": "EVALUATED"
+    },
+    "random": {
+      "n": 62,
+      "positives": 23,
+      "ap": 0.3397238161991054,
+      "brier": 0.2585314711459941,
+      "bss": -0.0832456687373293,
+      "ece": 0.13586550916828674,
+      "recall20": 0.17391304347826086,
+      "k": 13,
+      "captured": 4,
+      "falseAlarms": 9,
+      "status": "EVALUATED"
+    },
+    "local": {
+      "n": 62,
+      "positives": 23,
+      "ap": 0.5955342899702496,
+      "brier": 0.2335029695423635,
+      "bss": 0.021623637258333717,
+      "ece": 0.08736371254723857,
+      "recall20": 0.391304347826087,
+      "k": 13,
+      "captured": 9,
+      "falseAlarms": 4,
+      "status": "EVALUATED"
+    },
+    "climatology": {
+      "n": 62,
+      "positives": 23,
+      "ap": 0.3709677419354839,
+      "brier": 0.23866374785264347,
+      "bss": 0,
+      "ece": 0.07289081885856083,
+      "recall20": 0.17391304347826086,
+      "k": 13,
+      "captured": 4,
+      "falseAlarms": 9,
+      "status": "EVALUATED"
+    }
+  },
+  "controls": [
+    {
+      "control": "none",
+      "candidate": {
+        "route": "directional",
+        "lag": 7,
+        "model": "interaction",
+        "id": "directional-7-interaction"
+      },
+      "metrics": {
+        "n": 62,
+        "positives": 23,
+        "ap": 0.6213011314784772,
+        "brier": 0.2055912502615946,
+        "bss": 0.13857361199015694,
+        "ece": 0.0642888091735757,
+        "recall20": 0.391304347826087,
+        "k": 13,
+        "captured": 9,
+        "falseAlarms": 4,
+        "status": "EVALUATED"
+      }
+    },
+    {
+      "control": "reverse",
+      "candidate": {
+        "route": "directional",
+        "lag": 7,
+        "model": "interaction",
+        "id": "directional-7-interaction"
+      },
+      "metrics": {
+        "n": 62,
+        "positives": 23,
+        "ap": 0.5275796124936786,
+        "brier": 0.23829175829692656,
+        "bss": 0.0015586345184965822,
+        "ece": 0.09044079835153668,
+        "recall20": 0.34782608695652173,
+        "k": 13,
+        "captured": 8,
+        "falseAlarms": 5,
+        "status": "EVALUATED"
+      }
+    },
+    {
+      "control": "time-shift",
+      "candidate": {
+        "route": "directional",
+        "lag": 7,
+        "model": "interaction",
+        "id": "directional-7-interaction"
+      },
+      "metrics": {
+        "n": 62,
+        "positives": 23,
+        "ap": 0.6069025830290371,
+        "brier": 0.2276771450887136,
+        "bss": 0.04603381478243296,
+        "ece": 0.08160793664710411,
+        "recall20": 0.34782608695652173,
+        "k": 13,
+        "captured": 8,
+        "falseAlarms": 5,
+        "status": "EVALUATED"
+      }
+    }
+  ],
+  "notes": [
+    "Final test is opened only after selection.",
+    "Controls are pre-registered directional-7-interaction comparisons.",
+    "Synthetic findings are not evidence of ocean transport or real forecasting skill."
+  ]
+}

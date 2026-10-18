@@ -1,0 +1,8 @@
+{
+  "version": "coralbleach-synthetic-v1.0.0",
+  "seed": 42,
+  "horizon": 14,
+  "budget": 8,
+  "engine_sha256": "4be7c4b1845ed3f5caee7b118992a1678e68d30a4a4ccbdb6d279378fa67b484",
+  "result_sha256": "be07b0e3d07a50e91bcfbddedb2fd30b5c5272caf478cde998e664f6d1ab394a"
+}

@@ -1,0 +1,237 @@
+{
+  "summary": {
+    "seeds": "1..20",
+    "horizon": 14,
+    "budget": 8,
+    "n": 20,
+    "adaptive_ap": 0.5416880563597697,
+    "random_ap": 0.5850970436798855,
+    "local_ap": 0.41709970754306613,
+    "adaptive_wins_random": 5,
+    "adaptive_wins_local": 17,
+    "deferred": 3,
+    "notes": "Descriptive results across generator seeds. Not a significance test; not real-world skill."
+  },
+  "rows": [
+    {
+      "seed": 1,
+      "adaptive_ap": 0.8731819570171501,
+      "random_ap": 0.8682548337422853,
+      "local_ap": 0.803189402823798,
+      "adaptive_brier": 0.16788053129983135,
+      "random_brier": 0.16718303866523576,
+      "local_brier": 0.2012329108809182,
+      "winner": "directional-7-additive",
+      "quality": "EVALUATED"
+    },
+    {
+      "seed": 2,
+      "adaptive_ap": 0.8699618353682771,
+      "random_ap": 0.8840710810950385,
+      "local_ap": 0.6832463526776845,
+      "adaptive_brier": 0.1954246089475045,
+      "random_brier": 0.1604052382161513,
+      "local_brier": 0.3783766360634555,
+      "winner": "directional-7-interaction",
+      "quality": "EVALUATED"
+    },
+    {
+      "seed": 3,
+      "adaptive_ap": 0.44150831148687786,
+      "random_ap": 0.49165314602891097,
+      "local_ap": 0.2051010223136459,
+      "adaptive_brier": 0.16726370572224933,
+      "random_brier": 0.15489776773591205,
+      "local_brier": 0.1889947396725652,
+      "winner": "directional-7-additive",
+      "quality": "EVALUATED"
+    },
+    {
+      "seed": 4,
+      "adaptive_ap": 0.6828609534947285,
+      "random_ap": 0.8393833193106405,
+      "local_ap": 0.629638005820044,
+      "adaptive_brier": 0.20268929436904476,
+      "random_brier": 0.15062200229817327,
+      "local_brier": 0.20808355923759,
+      "winner": "neighbor-30-additive",
+      "quality": "EVALUATED"
+    },
+    {
+      "seed": 5,
+      "adaptive_ap": 0.5326462384371317,
+      "random_ap": 0.7159585170078443,
+      "local_ap": 0.48892956128272713,
+      "adaptive_brier": 0.2615684465881603,
+      "random_brier": 0.18701060699632258,
+      "local_brier": 0.27787822181530236,
+      "winner": "neighbor-30-additive",
+      "quality": "EVALUATED"
+    },
+    {
+      "seed": 6,
+      "adaptive_ap": 0.7476492878977878,
+      "random_ap": 0.7476492878977878,
+      "local_ap": 0.5810326253992693,
+      "adaptive_brier": 0.1912372422607395,
+      "random_brier": 0.1912372422607395,
+      "local_brier": 0.28106483184327347,
+      "winner": "directional-0-additive",
+      "quality": "EVALUATED"
+    },
+    {
+      "seed": 7,
+      "adaptive_ap": 0.35721869738604006,
+      "random_ap": 0.44179949053301476,
+      "local_ap": 0.3557162149945503,
+      "adaptive_brier": 0.21541410790444,
+      "random_brier": 0.2105824742264202,
+      "local_brier": 0.2176745110704604,
+      "winner": "directional-30-additive",
+      "quality": "EVALUATED"
+    },
+    {
+      "seed": 8,
+      "adaptive_ap": 0.7110177430514854,
+      "random_ap": 0.3621065758090772,
+      "local_ap": 0.4387161353511419,
+      "adaptive_brier": 0.16661929320574065,
+      "random_brier": 0.26269291537857115,
+      "local_brier": 0.2561711485489902,
+      "winner": "directional-0-additive",
+      "quality": "EVALUATED"
+    },
+    {
+      "seed": 9,
+      "adaptive_ap": 0.5297974684322752,
+      "random_ap": 0.7470502827773708,
+      "local_ap": 0.7159165674725461,
+      "adaptive_brier": 0.3196191741188177,
+      "random_brier": 0.19540388148087673,
+      "local_brier": 0.2573786123913963,
+      "winner": "neighbor-7-interaction",
+      "quality": "EVALUATED"
+    },
+    {
+      "seed": 10,
+      "adaptive_ap": 0.36486080182285485,
+      "random_ap": 0.5005972694520501,
+      "local_ap": 0.2785978187780299,
+      "adaptive_brier": 0.24377316986016884,
+      "random_brier": 0.21831121819464952,
+      "local_brier": 0.2229666252667614,
+      "winner": "directional-7-additive",
+      "quality": "EVALUATED"
+    },
+    {
+      "seed": 11,
+      "adaptive_ap": 0.40633545400689053,
+      "random_ap": 0.4090485487437574,
+      "local_ap": 0.28307006250089806,
+      "adaptive_brier": 0.21951628786713703,
+      "random_brier": 0.2257778290111103,
+      "local_brier": 0.22661350537797664,
+      "winner": "directional-7-additive",
+      "quality": "EVALUATED"
+    },
+    {
+      "seed": 12,
+      "adaptive_ap": 0.28614719313883935,
+      "random_ap": 0.22990447529512584,
+      "local_ap": 0.30990433590178923,
+      "adaptive_brier": 0.16872221238908447,
+      "random_brier": 0.1724898656426017,
+      "local_brier": 0.16744711081388236,
+      "winner": "directional-7-interaction",
+      "quality": "EVALUATED"
+    },
+    {
+      "seed": 13,
+      "adaptive_ap": 0.7620517327614514,
+      "random_ap": 0.8741409170356538,
+      "local_ap": 0.5492533174886115,
+      "adaptive_brier": 0.11800250816568265,
+      "random_brier": 0.08838062842119902,
+      "local_brier": 0.17408880326329637,
+      "winner": "directional-7-interaction",
+      "quality": "EVALUATED"
+    },
+    {
+      "seed": 14,
+      "adaptive_ap": 0.5617064075329775,
+      "random_ap": 0.743477921522627,
+      "local_ap": 0.25762783319686783,
+      "adaptive_brier": 0.16292222262572706,
+      "random_brier": 0.14125373117515447,
+      "local_brier": 0.2014212628484577,
+      "winner": "directional-7-additive",
+      "quality": "EVALUATED"
+    },
+    {
+      "seed": 15,
+      "adaptive_ap": 0.5710641205280441,
+      "random_ap": 0.6066785711911458,
+      "local_ap": 0.6236252647218602,
+      "adaptive_brier": 0.17424263742198937,
+      "random_brier": 0.1735925058006249,
+      "local_brier": 0.1646706784468508,
+      "winner": "neighbor-7-interaction",
+      "quality": "EVALUATED"
+    },
+    {
+      "seed": 16,
+      "adaptive_ap": 0.3843970804100114,
+      "random_ap": 0.6490056818181819,
+      "local_ap": 0.26090633903133903,
+      "adaptive_brier": 0.0991694964049269,
+      "random_brier": 0.0807292319848162,
+      "local_brier": 0.12618139238107814,
+      "winner": "directional-7-additive",
+      "quality": "DEFER"
+    },
+    {
+      "seed": 17,
+      "adaptive_ap": 0.5418607783175592,
+      "random_ap": 0.5418607783175592,
+      "local_ap": 0.17151256269963247,
+      "adaptive_brier": 0.11905203360418144,
+      "random_brier": 0.11905203360418144,
+      "local_brier": 0.17163438316008775,
+      "winner": "directional-7-interaction",
+      "quality": "EVALUATED"
+    },
+    {
+      "seed": 18,
+      "adaptive_ap": 0.31765042555483736,
+      "random_ap": 0.1482874923186127,
+      "local_ap": 0.25251514904586936,
+      "adaptive_brier": 0.11548274198601957,
+      "random_brier": 0.1252983648166932,
+      "local_brier": 0.1542003308650635,
+      "winner": "directional-7-interaction",
+      "quality": "DEFER"
+    },
+    {
+      "seed": 19,
+      "adaptive_ap": 0.29468454398106825,
+      "random_ap": 0.3453163195950471,
+      "local_ap": 0.2507806957386789,
+      "adaptive_brier": 0.13192026815974106,
+      "random_brier": 0.12501821684668332,
+      "local_brier": 0.13639473933461027,
+      "winner": "directional-30-interaction",
+      "quality": "DEFER"
+    },
+    {
+      "seed": 20,
+      "adaptive_ap": 0.5971600965691063,
+      "random_ap": 0.5556963641059751,
+      "local_ap": 0.20271488362233844,
+      "adaptive_brier": 0.13001802299155688,
+      "random_brier": 0.1315009876635075,
+      "local_brier": 0.17583540276989085,
+      "winner": "directional-7-additive",
+      "quality": "EVALUATED"
+    }
+  ]
+}

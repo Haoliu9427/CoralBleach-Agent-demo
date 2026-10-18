@@ -1,0 +1,3 @@
+import {benchmark} from './engine.js';
+import {runLLM} from './planner.js';
+self.onmessage=async e=>{try{if(e.data.mode==='llm'){const result=await runLLM(e.data,async messages=>{const res=await fetch('/api/plan',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({modelId:e.data.modelId,runId:e.data.runId,messages})});const data=await res.json();if(!res.ok)throw Error(data.error||'模型服务失败');return data;},progress=>self.postMessage({progress}));self.postMessage({llm:result,runId:e.data.runId,modelId:e.data.modelId});}else self.postMessage(benchmark(e.data));}catch(error){self.postMessage({error:error.message});}};

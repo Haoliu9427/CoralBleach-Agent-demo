@@ -1,0 +1,12 @@
+node_modules/
+.DS_Store
+.env
+.env.*
+!.env.example
+work/
+*.log
+.sites/
+secrets.toml
+.streamlit/secrets.toml
+*.pem
+*.key
