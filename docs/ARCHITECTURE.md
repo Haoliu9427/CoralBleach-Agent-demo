@@ -48,3 +48,9 @@ flowchart LR
 ## v1.1 新增研究路线
 
 `compound.js` 提供独立化学合成器、按可用字段过滤的候选和匹配对照。`research.js` 保存七条证据摘要；`planner.js` 按研究路线分派模型、评分函数与允许的对照。`compound-ui.js` 展示情景与字段门控，`reef-map.js` 负责地理上下文。详见 [研究更新](RESEARCH_UPDATE.md)。
+
+## v1.2 连接与地图配置
+
+`dist/llm-client.js` 共用 Chat Completions 适配与系统约束；`model-setup.js` 管理本页 Token 和真实生成检查。公开页面的 Worker 直连固定 ModelScope 域名；Token 通过独立 transport 对象传递，永不并入研究 config。规划器额外对白名单配置字段做筛选。旧版服务端目录与本地调用继续使用同一适配器。配置改变后撤销连接成功状态，运行中锁定连接字段，停止操作销毁 Worker。
+
+`atlas-config.js` 校验官方链接与坐标，仅把非密钥的定位偏好存入浏览器本地存储。地理入口配置与合成研究数据互不改写。

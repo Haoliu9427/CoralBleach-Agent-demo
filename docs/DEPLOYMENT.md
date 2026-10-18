@@ -2,11 +2,11 @@
 
 ## 本地完整模式
 
-Node.js20+，运行 npm start；打开 http://127.0.0.1:4173。可通过 PORT 改端口。此服务器仅监听本机。Python3.11+仅在读取TOML配置时使用。实际大模型需要服务端密钥，配置示例不含有效凭据。
+Node.js20+，运行 npm start；打开 http://127.0.0.1:4173。可通过 PORT 改端口。此服务器仅监听本机。Python3.11+仅在读取TOML配置时使用。网页可直接填写 ModelScope Token；已有服务端配置仍可使用，示例不含有效凭据。
 
 ## 静态网站
 
-将 dist/ 全部文件上传到支持静态文件的托管服务。HTML、模块和 land.geojson 必须同目录。无密钥实验在浏览器 Worker 中运行。静态站点无法运行 server/；因此只支持规则演示，大模型模式会说明未配置，不能把服务器密钥放进前端。
+将 dist/ 全部文件上传到支持静态文件的托管服务。HTML、模块和 land.geojson 必须同目录。无密钥实验在浏览器 Worker 中运行。静态站点不运行 server/。真实大模型通过访客在页面输入的 ModelScope Token 直接调用官方 API，Token 只存在当前页面内存；不要把维护者密钥硬编码进前端。详见 [配置说明](MODELSCOPE_SETUP.md)。
 
 ## GitHub Pages 公开演示
 

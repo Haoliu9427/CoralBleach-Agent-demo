@@ -28,6 +28,7 @@ export class ScientificTools{
 }
 export function parseCall(text){let t=text.trim();if(t.startsWith('```'))t=t.replace(/^```(?:json)?\s*/,'').replace(/\s*```$/,'');const c=JSON.parse(t);if(Object.keys(c).sort().join(',')!=='arguments,rationale,tool')throw Error('必须只返回tool、arguments、rationale');return c;}
 export async function runLLM(config,request,notify=()=>{}){
+  config=Object.fromEntries(['seed','horizon','budget','mode','question','track','access','world','model','modelId','runId','transport'].filter(k=>config[k]!==undefined).map(k=>[k,config[k]]));
   const tools=new ScientificTools(config),audit=[],messages=[{role:'user',content:JSON.stringify({research_goal:String(config.question||'分析局地与先行环境条件，选择模型并检验珊瑚白化候选；为负对照预留两步预算。').slice(0,1200),training_summary:trainingSummary(tools.data,config.horizon),evidence:tools.describe()})}];let rejects=0,tokens=0,complete=true,status='planning_limit';const started=Date.now();
   for(let step=1;step<=config.budget+5;step++){
     if(Date.now()-started>240000){status='time_budget';break;}notify({step,used:tools.used,budget:config.budget});

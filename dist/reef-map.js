@@ -1,5 +1,5 @@
 // Geographic context is independent of synthetic environmental/biological values.
-const ATLAS='https://allencoralatlas.org/atlas/';
+import {setupAtlas} from './atlas-config.js';
 export function createReefMap({geo,onSelect}){
  const L=window.L,root=document.getElementById('map'),status=document.getElementById('atlas-status');
  if(!L){root.textContent='地图组件未加载；可从下方入口查看官方 Atlas。';return {update(){},focus(){},reset(){},resize(){}};}
@@ -9,9 +9,8 @@ export function createReefMap({geo,onSelect}){
  L.geoJSON(geo,{style:{color:'#52717a',weight:.6,fillColor:'#33535d',fillOpacity:1},interactive:false,attribution:'陆地：Natural Earth（公共领域）'}).addTo(map);
  const points=L.layerGroup().addTo(map);
  let selected=null,tiles=null,errors=0,loaded=0;
- const atlasLink=document.getElementById('atlas-link');
- function updateLink(){atlasLink.href=selected?`${ATLAS}#9.00/${selected.lat.toFixed(4)}/${selected.lon.toFixed(4)}`:ATLAS;}
- function update(sites,site,layer,risk,color){selected=site;updateLink();points.clearLayers();for(const s of sites){const c=layer==='risk'?color(risk(s)):layer==='evidence'?(s.evidence==='A'?'#67c0aa':s.evidence==='B'?'#e0c185':'#90a1aa'):(s.outcome?'#b7a2d8':'#82939c');const marker=L.circleMarker([s.lat,s.lon],{radius:s.id===site.id?8:5.5,color:s.id===site.id?'#fff':c,weight:2,fillColor:c,fillOpacity:1}).addTo(points);marker.bindTooltip(`${s.name} · 合成演示锚点`,{direction:'top'});marker.on('click',()=>onSelect(s.id));} }
+ const atlas=setupAtlas({getSite:()=>selected,getView:()=>{const c=map.getCenter();return {lat:Math.max(-90,Math.min(90,c.lat)),lon:((c.lng+180)%360+360)%360-180,zoom:Math.max(1,map.getZoom())};}});
+ function update(sites,site,layer,risk,color){selected=site;atlas.refresh();points.clearLayers();for(const s of sites){const c=layer==='risk'?color(risk(s)):layer==='evidence'?(s.evidence==='A'?'#67c0aa':s.evidence==='B'?'#e0c185':'#90a1aa'):(s.outcome?'#b7a2d8':'#82939c');const marker=L.circleMarker([s.lat,s.lon],{radius:s.id===site.id?8:5.5,color:s.id===site.id?'#fff':c,weight:2,fillColor:c,fillOpacity:1}).addTo(points);marker.bindTooltip(`${s.name} · 合成演示锚点`,{direction:'top'});marker.on('click',()=>onSelect(s.id));} }
  document.getElementById('atlas-toggle').onchange=e=>{
   if(!e.target.checked){if(tiles)map.removeLayer(tiles);tiles=null;status.textContent='官方图层未开启 · 合成锚点不表示全球礁区分布';return;}
   errors=0;loaded=0;status.textContent='正在请求官方礁区地貌图层…';

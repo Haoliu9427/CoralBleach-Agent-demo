@@ -1,4 +1,15 @@
 import {compoundBenchmark} from './compound.js';
 import {benchmark} from './engine.js';
 import {runLLM} from './planner.js';
-self.onmessage=async e=>{try{if(e.data.mode==='llm'){const result=await runLLM(e.data,async messages=>{const res=await fetch('/api/plan',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({modelId:e.data.modelId,runId:e.data.runId,messages})});const data=await res.json();if(!res.ok)throw Error(data.error||'模型服务失败');return data;},progress=>self.postMessage({progress}));self.postMessage({llm:result,runId:e.data.runId,modelId:e.data.modelId});}else self.postMessage(e.data.track==='compound'?compoundBenchmark(e.data):benchmark(e.data));}catch(error){self.postMessage({error:error.message});}};
+import {chat,postAPI,SYSTEM} from './llm-client.js';
+self.onmessage=async e=>{
+  const {config,connection}=e.data;
+  try{
+    if(config.mode==='llm'){
+      const result=await runLLM(config, messages=>connection.transport==='modelscope-browser'
+        ?chat(connection.credentials,[{role:'system',content:SYSTEM},...messages])
+        :postAPI('plan',{modelId:config.modelId,runId:config.runId,messages}),progress=>self.postMessage({progress}));
+      self.postMessage({llm:result,runId:config.runId,modelId:config.modelId,connectionId:connection.connectionId});
+    }else self.postMessage(config.track==='compound'?compoundBenchmark(config):benchmark(config));
+  }catch(error){self.postMessage({error:error.message});}
+};
