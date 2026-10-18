@@ -4,3 +4,6 @@
 2. Natural Earth 1:110m land，public domain，https://www.naturalearthdata.com/about/terms-of-use/ 。数据从 https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_110m_land.geojson 获取，查阅2026-10-18，Git blob SHA 04811d72fff2701ec67587e30ad8942675b511e3。仅作地理底图，不表示珊瑚礁分布。未添加行政边界。
 3. 科学引用列于dist/scientific-definition.md。未捆绑NOAA、GCBD或HeatCRD原始观测。用户附件仅用于问题定义讨论，未纳入公开工程。
 4. 本工程界面图标为自绘SVG；无远程字体或第三方图表运行库。合成数据可按项目MIT条款使用，必须继续标明合成来源。
+
+5. Leaflet 1.9.4（BSD-2-Clause），来源 https://leafletjs.com/ ，vendored 文件位于 dist/vendor，完整许可证见 dist/vendor/LEAFLET-LICENSE.txt。
+6. Allen Coral Atlas 官方地貌 WMS 与定位入口，https://allencoralatlas.org/resources/ 。地图、测深及统计为 © 2018–2023 Allen Coral Atlas Partnership and Arizona State University，CC BY 4.0；卫星影像另有许可，本工程未捆绑影像或全球数据。公开服务访问受提供方控制，GetMap 的 403 核验记录见 docs/RESEARCH_UPDATE.md。

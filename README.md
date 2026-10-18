@@ -6,6 +6,12 @@
 
 在线演示：[CoralBleach-Agent](https://haoliu9427.github.io/CoralBleach-Agent-demo/)（免费公开访问，合成数据）。
 
+## 本次研究更新
+
+新增氮形态与共污染路线：5 组变量方案 × 4 种滞后，按字段可用性缩减为 20 / 16 / 8 个候选。模型池和真实 LLM 工具共同执行字段门控；文献只支持候选依据，所有浓度及白化标签仍合成。首页加入氮形态情景对照，实验室可切换“无化学增量”和“区域效应改变”反例。
+
+地图支持缩放、本站定位和 Allen Coral Atlas 官方入口。WMS 适配已提供，但 2026-10-18 验证 GetMap 返回 403；图层默认关闭且失败明确显示。未宣称已接入完整全球真实礁区分布。更新范围、两条路线的预算与数据边界见 [研究更新](docs/RESEARCH_UPDATE.md)。
+
 ## 快速运行
 
 安装 Node.js 20 或更新版本，在项目目录运行：
@@ -14,7 +20,7 @@
 npm start
 ```
 
-打开 http://127.0.0.1:4173 。Windows可双击 `启动演示.cmd`。没有运行时第三方依赖，无需npm install。不要直接双击 HTML，模块、地图和后台计算需要HTTP服务。
+打开 http://127.0.0.1:4173 。Windows可双击 `启动演示.cmd`。无需 npm install；Leaflet 1.9.4 已随源码附带并保留许可证。不要直接双击 HTML，模块、地图和后台计算需要HTTP服务。
 
 ## 可以演示什么
 
@@ -23,7 +29,7 @@ npm start
 - 真实大模型模式：场景摘要 → 科学模型池 → 工具调用 → 验证反馈 → 反例核查 → 冻结 → 封存测试。密钥仅保存在服务端；无密钥默认使用明确标注的规则模式。
 - 科学问题与证据：完整Word/Markdown定义文档、可检验假设、边界、数据来源与迁移方案。
 
-需要 Python 3.11+。示例见 `config/secrets.example.toml`。也可设置 `CORAL_LLM_BASE_URL`、`CORAL_LLM_API_KEY`、`CORAL_LLM_MODEL`（兼容 `HAB_QWEN_*`）再运行 npm start。网页选择真实大模型模式、点击检查连接后运行。只向所配置供应商发送合成训练摘要、研究问题和验证反馈。不要将密钥输入网页、上传 GitHub 或放进 dist。
+如需读取 TOML 配置，需要 Python 3.11+。示例见 `config/secrets.example.toml`。也可设置 `CORAL_LLM_BASE_URL`、`CORAL_LLM_API_KEY`、`CORAL_LLM_MODEL`（兼容 `HAB_QWEN_*`）再运行 npm start。网页选择真实大模型模式、点击检查连接后运行。只向所配置供应商发送合成训练摘要、研究问题和验证反馈。不要将密钥输入网页、上传 GitHub 或放进 dist。
 
 目前完成模拟服务与工具协议测试；实际供应商连接须使用你自己的可用配置验证。失败会停止，不会伪装成真实 LLM 运行。
 
@@ -35,9 +41,10 @@ npm run build
 npm run benchmark
 node scripts/multi-seed.mjs
 node scripts/export-data.mjs
+npm run benchmark:compound
 ```
 
-默认种子 42 / 提前期 14 天 / 每策略 8 步：启发式测试 AP 0.621，局地基线 0.596。20 个种子下启发式平均 AP 0.542、随机 0.585；尚未建立搜索效率优势。数值只描述当前合成环境，不能作为真实预测成绩或 LLM 成绩。
+旧版时滞与空间信号路线，种子 42 / 提前期 14 天 / 每策略 8 步：启发式测试 AP 0.621，局地基线 0.596。20 个种子下启发式平均 AP 0.542、随机 0.585；尚未建立搜索效率优势。数值只描述当前合成环境，不能作为真实预测成绩或 LLM 成绩。
 
 ## 工程结构
 

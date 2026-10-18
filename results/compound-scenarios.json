@@ -1,0 +1,1733 @@
+{
+  "purpose": "Software scenarios, not empirical performance or causal estimates",
+  "runs": [
+    {
+      "version": "coralbleach-compound-v1.1.0",
+      "track": "compound",
+      "dataKind": "synthetic",
+      "seed": 42,
+      "horizon": 14,
+      "budget": 8,
+      "world": "interaction",
+      "access": "full",
+      "splits": {
+        "train": {
+          "reefs": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "start": 90,
+          "end": 360
+        },
+        "validation": {
+          "reefs": [
+            8,
+            9
+          ],
+          "start": 435,
+          "end": 525
+        },
+        "test": {
+          "reefs": [
+            10,
+            11
+          ],
+          "start": 600,
+          "end": 690
+        }
+      },
+      "adaptive": {
+        "policy": "adaptive",
+        "log": [
+          {
+            "step": 1,
+            "candidate": {
+              "id": "chem-0-thermal",
+              "route": "local",
+              "lag": 0,
+              "model": "thermal"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 19,
+              "ap": 0.3543482284041416,
+              "brier": 0.21252371788521252,
+              "bss": 0.0009418520917823248,
+              "ece": 0.06589325545137605,
+              "recall20": 0.21052631578947367,
+              "k": 13,
+              "captured": 4,
+              "falseAlarms": 9,
+              "status": "EVALUATED"
+            },
+            "utility": 0.23490771837126012,
+            "remaining": 7
+          },
+          {
+            "step": 2,
+            "candidate": {
+              "id": "chem-0-din",
+              "route": "local",
+              "lag": 0,
+              "model": "din"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 19,
+              "ap": 0.3787469267621199,
+              "brier": 0.2089962529828001,
+              "bss": 0.017524201522158944,
+              "ece": 0.1496265546073584,
+              "recall20": 0.10526315789473684,
+              "k": 13,
+              "captured": 2,
+              "falseAlarms": 11,
+              "status": "EVALUATED"
+            },
+            "utility": 0.24432348934924816,
+            "remaining": 6
+          },
+          {
+            "step": 3,
+            "candidate": {
+              "id": "chem-0-forms",
+              "route": "local",
+              "lag": 0,
+              "model": "forms"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 19,
+              "ap": 0.3852201330722878,
+              "brier": 0.2091069007881648,
+              "bss": 0.017004054441175476,
+              "ece": 0.18302006679403798,
+              "recall20": 0.10526315789473684,
+              "k": 13,
+              "captured": 2,
+              "falseAlarms": 11,
+              "status": "EVALUATED"
+            },
+            "utility": 0.2440626693193978,
+            "remaining": 5
+          },
+          {
+            "step": 4,
+            "candidate": {
+              "id": "chem-0-interactions",
+              "route": "local",
+              "lag": 0,
+              "model": "interactions"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 19,
+              "ap": 0.38608890263532913,
+              "brier": 0.21417566917171443,
+              "bss": -0.006823847704692243,
+              "ece": 0.1605706656512011,
+              "recall20": 0.15789473684210525,
+              "k": 13,
+              "captured": 3,
+              "falseAlarms": 10,
+              "status": "EVALUATED"
+            },
+            "utility": 0.24688693491923167,
+            "remaining": 4
+          },
+          {
+            "step": 5,
+            "candidate": {
+              "id": "chem-0-copollution",
+              "route": "local",
+              "lag": 0,
+              "model": "copollution"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 19,
+              "ap": 0.43401763219801676,
+              "brier": 0.21026176775802044,
+              "bss": 0.01157511094505459,
+              "ece": 0.07613395034745421,
+              "recall20": 0.2631578947368421,
+              "k": 13,
+              "captured": 5,
+              "falseAlarms": 8,
+              "status": "EVALUATED"
+            },
+            "utility": 0.3136599582495157,
+            "remaining": 3
+          },
+          {
+            "step": 6,
+            "candidate": {
+              "id": "chem-14-copollution",
+              "route": "local",
+              "lag": 14,
+              "model": "copollution"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 19,
+              "ap": 0.3439793199061563,
+              "brier": 0.23211643326824968,
+              "bss": -0.09116204171287201,
+              "ece": 0.08939931359013312,
+              "recall20": 0.2631578947368421,
+              "k": 13,
+              "captured": 5,
+              "falseAlarms": 8,
+              "status": "EVALUATED"
+            },
+            "utility": 0.21004124055400483,
+            "remaining": 2
+          },
+          {
+            "step": 7,
+            "candidate": {
+              "id": "chem-30-copollution",
+              "route": "local",
+              "lag": 30,
+              "model": "copollution"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 19,
+              "ap": 0.36625021726370566,
+              "brier": 0.2230632625001815,
+              "bss": -0.04860376111132436,
+              "ece": 0.10007387194516086,
+              "recall20": 0.21052631578947367,
+              "k": 13,
+              "captured": 4,
+              "falseAlarms": 9,
+              "status": "EVALUATED"
+            },
+            "utility": 0.23470381162458273,
+            "remaining": 1
+          },
+          {
+            "step": 8,
+            "candidate": {
+              "id": "chem-7-copollution",
+              "route": "local",
+              "lag": 7,
+              "model": "copollution"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 19,
+              "ap": 0.35884862270516593,
+              "brier": 0.22570482978397746,
+              "bss": -0.061021571906209715,
+              "ece": 0.11228906357823434,
+              "recall20": 0.2631578947368421,
+              "k": 13,
+              "captured": 5,
+              "falseAlarms": 8,
+              "status": "EVALUATED"
+            },
+            "utility": 0.22353839509753035,
+            "remaining": 0
+          }
+        ],
+        "winner": {
+          "id": "chem-0-copollution",
+          "route": "local",
+          "lag": 0,
+          "model": "copollution"
+        }
+      },
+      "random": {
+        "policy": "random",
+        "log": [
+          {
+            "step": 1,
+            "candidate": {
+              "id": "chem-7-forms",
+              "route": "local",
+              "lag": 7,
+              "model": "forms"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 19,
+              "ap": 0.3337416359512416,
+              "brier": 0.21269843761029483,
+              "bss": 0.00012050769464522215,
+              "ece": 0.12271050626366302,
+              "recall20": 0.15789473684210525,
+              "k": 13,
+              "captured": 3,
+              "falseAlarms": 10,
+              "status": "EVALUATED"
+            },
+            "utility": 0.2028503158933616,
+            "remaining": 7
+          },
+          {
+            "step": 2,
+            "candidate": {
+              "id": "chem-30-din",
+              "route": "local",
+              "lag": 30,
+              "model": "din"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 19,
+              "ap": 0.38431289517492273,
+              "brier": 0.20610300607867188,
+              "bss": 0.03112513944213624,
+              "ece": 0.13662766802763765,
+              "recall20": 0.2631578947368421,
+              "k": 13,
+              "captured": 5,
+              "falseAlarms": 8,
+              "status": "EVALUATED"
+            },
+            "utility": 0.25393585853005923,
+            "remaining": 6
+          },
+          {
+            "step": 3,
+            "candidate": {
+              "id": "chem-14-forms",
+              "route": "local",
+              "lag": 14,
+              "model": "forms"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 19,
+              "ap": 0.35993032173518846,
+              "brier": 0.20805894454247892,
+              "bss": 0.021930418596301293,
+              "ece": 0.0772521532179916,
+              "recall20": 0.2631578947368421,
+              "k": 13,
+              "captured": 5,
+              "falseAlarms": 8,
+              "status": "EVALUATED"
+            },
+            "utility": 0.24045041882035065,
+            "remaining": 5
+          },
+          {
+            "step": 4,
+            "candidate": {
+              "id": "chem-0-din",
+              "route": "local",
+              "lag": 0,
+              "model": "din"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 19,
+              "ap": 0.3787469267621199,
+              "brier": 0.2089962529828001,
+              "bss": 0.017524201522158944,
+              "ece": 0.1496265546073584,
+              "recall20": 0.10526315789473684,
+              "k": 13,
+              "captured": 2,
+              "falseAlarms": 11,
+              "status": "EVALUATED"
+            },
+            "utility": 0.24432348934924816,
+            "remaining": 4
+          },
+          {
+            "step": 5,
+            "candidate": {
+              "id": "chem-14-thermal",
+              "route": "local",
+              "lag": 14,
+              "model": "thermal"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 19,
+              "ap": 0.3307333408084019,
+              "brier": 0.21610137914377,
+              "bss": -0.015876466665223132,
+              "ece": 0.042232290773367515,
+              "recall20": 0.15789473684210525,
+              "k": 13,
+              "captured": 3,
+              "falseAlarms": 10,
+              "status": "EVALUATED"
+            },
+            "utility": 0.21423619308184336,
+            "remaining": 3
+          },
+          {
+            "step": 6,
+            "candidate": {
+              "id": "chem-0-copollution",
+              "route": "local",
+              "lag": 0,
+              "model": "copollution"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 19,
+              "ap": 0.43401763219801676,
+              "brier": 0.21026176775802044,
+              "bss": 0.01157511094505459,
+              "ece": 0.07613395034745421,
+              "recall20": 0.2631578947368421,
+              "k": 13,
+              "captured": 5,
+              "falseAlarms": 8,
+              "status": "EVALUATED"
+            },
+            "utility": 0.3136599582495157,
+            "remaining": 2
+          },
+          {
+            "step": 7,
+            "candidate": {
+              "id": "chem-0-forms",
+              "route": "local",
+              "lag": 0,
+              "model": "forms"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 19,
+              "ap": 0.3852201330722878,
+              "brier": 0.2091069007881648,
+              "bss": 0.017004054441175476,
+              "ece": 0.18302006679403798,
+              "recall20": 0.10526315789473684,
+              "k": 13,
+              "captured": 2,
+              "falseAlarms": 11,
+              "status": "EVALUATED"
+            },
+            "utility": 0.2440626693193978,
+            "remaining": 1
+          },
+          {
+            "step": 8,
+            "candidate": {
+              "id": "chem-7-interactions",
+              "route": "local",
+              "lag": 7,
+              "model": "interactions"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 19,
+              "ap": 0.3313721659421629,
+              "brier": 0.2167413835111927,
+              "bss": -0.018885079465399413,
+              "ece": 0.133480892771716,
+              "recall20": 0.21052631578947367,
+              "k": 13,
+              "captured": 4,
+              "falseAlarms": 9,
+              "status": "EVALUATED"
+            },
+            "utility": 0.19630529563222335,
+            "remaining": 0
+          }
+        ],
+        "winner": {
+          "id": "chem-0-copollution",
+          "route": "local",
+          "lag": 0,
+          "model": "copollution"
+        }
+      },
+      "final": {
+        "adaptive": {
+          "n": 62,
+          "positives": 18,
+          "ap": 0.7923978400747368,
+          "brier": 0.14643130450029854,
+          "bss": 0.29232682272711874,
+          "ece": 0.12839333559369018,
+          "recall20": 0.5555555555555556,
+          "k": 13,
+          "captured": 10,
+          "falseAlarms": 3,
+          "status": "EVALUATED"
+        },
+        "random": {
+          "n": 62,
+          "positives": 18,
+          "ap": 0.7923978400747368,
+          "brier": 0.14643130450029854,
+          "bss": 0.29232682272711874,
+          "ece": 0.12839333559369018,
+          "recall20": 0.5555555555555556,
+          "k": 13,
+          "captured": 10,
+          "falseAlarms": 3,
+          "status": "EVALUATED"
+        },
+        "local": {
+          "n": 62,
+          "positives": 18,
+          "ap": 0.6943969878399702,
+          "brier": 0.1791492277741909,
+          "bss": 0.1342076500815007,
+          "ece": 0.1252741698892563,
+          "recall20": 0.3888888888888889,
+          "k": 13,
+          "captured": 7,
+          "falseAlarms": 6,
+          "status": "EVALUATED"
+        },
+        "climatology": {
+          "n": 62,
+          "positives": 18,
+          "ap": 0.2903225806451613,
+          "brier": 0.20691939330609121,
+          "bss": 0,
+          "ece": 0.029732364409783756,
+          "recall20": 0.2222222222222222,
+          "k": 13,
+          "captured": 4,
+          "falseAlarms": 9,
+          "status": "EVALUATED"
+        }
+      },
+      "controls": [
+        {
+          "control": "none",
+          "candidate": {
+            "id": "chem-0-copollution",
+            "route": "local",
+            "lag": 0,
+            "model": "copollution"
+          },
+          "metrics": {
+            "n": 62,
+            "positives": 18,
+            "ap": 0.7923978400747368,
+            "brier": 0.14643130450029854,
+            "bss": 0.29232682272711874,
+            "ece": 0.12839333559369018,
+            "recall20": 0.5555555555555556,
+            "k": 13,
+            "captured": 10,
+            "falseAlarms": 3,
+            "status": "EVALUATED"
+          }
+        },
+        {
+          "control": "ablate",
+          "candidate": {
+            "id": "chem-0-copollution",
+            "route": "local",
+            "lag": 0,
+            "model": "copollution"
+          },
+          "metrics": {
+            "n": 62,
+            "positives": 18,
+            "ap": 0.6943969878399702,
+            "brier": 0.1791492277741909,
+            "bss": 0.1342076500815007,
+            "ece": 0.1252741698892563,
+            "recall20": 0.3888888888888889,
+            "k": 13,
+            "captured": 7,
+            "falseAlarms": 6,
+            "status": "EVALUATED"
+          }
+        },
+        {
+          "control": "time-shift",
+          "candidate": {
+            "id": "chem-0-copollution",
+            "route": "local",
+            "lag": 0,
+            "model": "copollution"
+          },
+          "metrics": {
+            "n": 62,
+            "positives": 18,
+            "ap": 0.5368763458199003,
+            "brier": 0.1907429571474021,
+            "bss": 0.07817747723027424,
+            "ece": 0.08039206865504497,
+            "recall20": 0.3888888888888889,
+            "k": 13,
+            "captured": 7,
+            "falseAlarms": 6,
+            "status": "EVALUATED"
+          }
+        }
+      ],
+      "notes": [
+        "化学浓度和白化标签均为合成；未拟合真实珊瑚观测。",
+        "移除化学信息的对照保持赢家的滞后、分区和基础变量；不是因果检验。",
+        "规则模式每策略预算只计候选，负对照另计。",
+        "已冻结的同一候选在测试集评分；不得据此重新选择。"
+      ]
+    },
+    {
+      "version": "coralbleach-compound-v1.1.0",
+      "track": "compound",
+      "dataKind": "synthetic",
+      "seed": 42,
+      "horizon": 14,
+      "budget": 8,
+      "world": "null",
+      "access": "full",
+      "splits": {
+        "train": {
+          "reefs": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "start": 90,
+          "end": 360
+        },
+        "validation": {
+          "reefs": [
+            8,
+            9
+          ],
+          "start": 435,
+          "end": 525
+        },
+        "test": {
+          "reefs": [
+            10,
+            11
+          ],
+          "start": 600,
+          "end": 690
+        }
+      },
+      "adaptive": {
+        "policy": "adaptive",
+        "log": [
+          {
+            "step": 1,
+            "candidate": {
+              "id": "chem-0-thermal",
+              "route": "local",
+              "lag": 0,
+              "model": "thermal"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 18,
+              "ap": 0.46553288067419696,
+              "brier": 0.19897106480629947,
+              "bss": 0.057934668272601964,
+              "ece": 0.07917685293285141,
+              "recall20": 0.3888888888888889,
+              "k": 13,
+              "captured": 7,
+              "falseAlarms": 6,
+              "status": "EVALUATED"
+            },
+            "utility": 0.3502119776844769,
+            "remaining": 7
+          },
+          {
+            "step": 2,
+            "candidate": {
+              "id": "chem-0-din",
+              "route": "local",
+              "lag": 0,
+              "model": "din"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 18,
+              "ap": 0.3881497535084494,
+              "brier": 0.19928434291643118,
+              "bss": 0.056451395078926936,
+              "ece": 0.06662091724566245,
+              "recall20": 0.3333333333333333,
+              "k": 13,
+              "captured": 6,
+              "falseAlarms": 7,
+              "status": "EVALUATED"
+            },
+            "utility": 0.2751833986011013,
+            "remaining": 6
+          },
+          {
+            "step": 3,
+            "candidate": {
+              "id": "chem-0-forms",
+              "route": "local",
+              "lag": 0,
+              "model": "forms"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 18,
+              "ap": 0.3818335060001726,
+              "brier": 0.1995871667802017,
+              "bss": 0.055017619449512334,
+              "ece": 0.04809310100729717,
+              "recall20": 0.2777777777777778,
+              "k": 13,
+              "captured": 5,
+              "falseAlarms": 8,
+              "status": "EVALUATED"
+            },
+            "utility": 0.2724213024086123,
+            "remaining": 5
+          },
+          {
+            "step": 4,
+            "candidate": {
+              "id": "chem-0-interactions",
+              "route": "local",
+              "lag": 0,
+              "model": "interactions"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 18,
+              "ap": 0.3736541845008157,
+              "brier": 0.20199115002609205,
+              "bss": 0.04363551584459113,
+              "ece": 0.07492921530829544,
+              "recall20": 0.3333333333333333,
+              "k": 13,
+              "captured": 6,
+              "falseAlarms": 7,
+              "status": "EVALUATED"
+            },
+            "utility": 0.25767276642611064,
+            "remaining": 4
+          },
+          {
+            "step": 5,
+            "candidate": {
+              "id": "chem-0-copollution",
+              "route": "local",
+              "lag": 0,
+              "model": "copollution"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 18,
+              "ap": 0.38278427676559346,
+              "brier": 0.19939857035130024,
+              "bss": 0.05591056414741913,
+              "ece": 0.09089888240056686,
+              "recall20": 0.3333333333333333,
+              "k": 13,
+              "captured": 6,
+              "falseAlarms": 7,
+              "status": "EVALUATED"
+            },
+            "utility": 0.26490521510982995,
+            "remaining": 3
+          },
+          {
+            "step": 6,
+            "candidate": {
+              "id": "chem-14-thermal",
+              "route": "local",
+              "lag": 14,
+              "model": "thermal"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 18,
+              "ap": 0.46256633323425567,
+              "brier": 0.19972223891740473,
+              "bss": 0.054378095416883876,
+              "ece": 0.10814949790367676,
+              "recall20": 0.3888888888888889,
+              "k": 13,
+              "captured": 7,
+              "falseAlarms": 6,
+              "status": "EVALUATED"
+            },
+            "utility": 0.34107531419481796,
+            "remaining": 2
+          },
+          {
+            "step": 7,
+            "candidate": {
+              "id": "chem-30-thermal",
+              "route": "local",
+              "lag": 30,
+              "model": "thermal"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 18,
+              "ap": 0.4652127611048917,
+              "brier": 0.19901039295583836,
+              "bss": 0.057748461869788326,
+              "ece": 0.08401942408847737,
+              "recall20": 0.4444444444444444,
+              "k": 13,
+              "captured": 8,
+              "falseAlarms": 5,
+              "status": "EVALUATED"
+            },
+            "utility": 0.34890367980927706,
+            "remaining": 1
+          },
+          {
+            "step": 8,
+            "candidate": {
+              "id": "chem-7-thermal",
+              "route": "local",
+              "lag": 7,
+              "model": "thermal"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 18,
+              "ap": 0.4508611615278162,
+              "brier": 0.19970896355914938,
+              "bss": 0.05444095005753624,
+              "ece": 0.0898532574913334,
+              "recall20": 0.3888888888888889,
+              "k": 13,
+              "captured": 7,
+              "falseAlarms": 6,
+              "status": "EVALUATED"
+            },
+            "utility": 0.33303602824997486,
+            "remaining": 0
+          }
+        ],
+        "winner": {
+          "id": "chem-0-thermal",
+          "route": "local",
+          "lag": 0,
+          "model": "thermal"
+        }
+      },
+      "random": {
+        "policy": "random",
+        "log": [
+          {
+            "step": 1,
+            "candidate": {
+              "id": "chem-7-forms",
+              "route": "local",
+              "lag": 7,
+              "model": "forms"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 18,
+              "ap": 0.43063862678398807,
+              "brier": 0.19742972765589623,
+              "bss": 0.06523241428060556,
+              "ece": 0.07582745927319523,
+              "recall20": 0.3888888888888889,
+              "k": 13,
+              "captured": 7,
+              "falseAlarms": 6,
+              "status": "EVALUATED"
+            },
+            "utility": 0.3167582711014009,
+            "remaining": 7
+          },
+          {
+            "step": 2,
+            "candidate": {
+              "id": "chem-30-din",
+              "route": "local",
+              "lag": 30,
+              "model": "din"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 18,
+              "ap": 0.512423770936291,
+              "brier": 0.19327673476738919,
+              "bss": 0.08489552774376996,
+              "ece": 0.07905756235276276,
+              "recall20": 0.3888888888888889,
+              "k": 13,
+              "captured": 7,
+              "falseAlarms": 6,
+              "status": "EVALUATED"
+            },
+            "utility": 0.39997389108204384,
+            "remaining": 6
+          },
+          {
+            "step": 3,
+            "candidate": {
+              "id": "chem-14-forms",
+              "route": "local",
+              "lag": 14,
+              "model": "forms"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 18,
+              "ap": 0.4452198093187859,
+              "brier": 0.1993102672356812,
+              "bss": 0.05632865159138589,
+              "ece": 0.06291461234016384,
+              "recall20": 0.2777777777777778,
+              "k": 13,
+              "captured": 5,
+              "falseAlarms": 8,
+              "status": "EVALUATED"
+            },
+            "utility": 0.3329817532329125,
+            "remaining": 5
+          },
+          {
+            "step": 4,
+            "candidate": {
+              "id": "chem-0-din",
+              "route": "local",
+              "lag": 0,
+              "model": "din"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 18,
+              "ap": 0.3881497535084494,
+              "brier": 0.19928434291643118,
+              "bss": 0.056451395078926936,
+              "ece": 0.06662091724566245,
+              "recall20": 0.3333333333333333,
+              "k": 13,
+              "captured": 6,
+              "falseAlarms": 7,
+              "status": "EVALUATED"
+            },
+            "utility": 0.2751833986011013,
+            "remaining": 4
+          },
+          {
+            "step": 5,
+            "candidate": {
+              "id": "chem-14-thermal",
+              "route": "local",
+              "lag": 14,
+              "model": "thermal"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 18,
+              "ap": 0.46256633323425567,
+              "brier": 0.19972223891740473,
+              "bss": 0.054378095416883876,
+              "ece": 0.10814949790367676,
+              "recall20": 0.3888888888888889,
+              "k": 13,
+              "captured": 7,
+              "falseAlarms": 6,
+              "status": "EVALUATED"
+            },
+            "utility": 0.34107531419481796,
+            "remaining": 3
+          },
+          {
+            "step": 6,
+            "candidate": {
+              "id": "chem-0-copollution",
+              "route": "local",
+              "lag": 0,
+              "model": "copollution"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 18,
+              "ap": 0.38278427676559346,
+              "brier": 0.19939857035130024,
+              "bss": 0.05591056414741913,
+              "ece": 0.09089888240056686,
+              "recall20": 0.3333333333333333,
+              "k": 13,
+              "captured": 6,
+              "falseAlarms": 7,
+              "status": "EVALUATED"
+            },
+            "utility": 0.26490521510982995,
+            "remaining": 2
+          },
+          {
+            "step": 7,
+            "candidate": {
+              "id": "chem-0-forms",
+              "route": "local",
+              "lag": 0,
+              "model": "forms"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 18,
+              "ap": 0.3818335060001726,
+              "brier": 0.1995871667802017,
+              "bss": 0.055017619449512334,
+              "ece": 0.04809310100729717,
+              "recall20": 0.2777777777777778,
+              "k": 13,
+              "captured": 5,
+              "falseAlarms": 8,
+              "status": "EVALUATED"
+            },
+            "utility": 0.2724213024086123,
+            "remaining": 1
+          },
+          {
+            "step": 8,
+            "candidate": {
+              "id": "chem-7-interactions",
+              "route": "local",
+              "lag": 7,
+              "model": "interactions"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 18,
+              "ap": 0.4683378704740293,
+              "brier": 0.19610364378466694,
+              "bss": 0.07151100379945918,
+              "ece": 0.08688071574091139,
+              "recall20": 0.3333333333333333,
+              "k": 13,
+              "captured": 6,
+              "falseAlarms": 7,
+              "status": "EVALUATED"
+            },
+            "utility": 0.3529099054335136,
+            "remaining": 0
+          }
+        ],
+        "winner": {
+          "id": "chem-30-din",
+          "route": "local",
+          "lag": 30,
+          "model": "din"
+        }
+      },
+      "final": {
+        "adaptive": {
+          "n": 62,
+          "positives": 12,
+          "ap": 0.4672490723421574,
+          "brier": 0.14268774065833148,
+          "bss": 0.08945195337938427,
+          "ece": 0.060424731510350146,
+          "recall20": 0.4166666666666667,
+          "k": 13,
+          "captured": 5,
+          "falseAlarms": 8,
+          "status": "EVALUATED"
+        },
+        "random": {
+          "n": 62,
+          "positives": 12,
+          "ap": 0.31765560828060824,
+          "brier": 0.14606053712529815,
+          "bss": 0.06792877822448995,
+          "ece": 0.04618062592772586,
+          "recall20": 0.4166666666666667,
+          "k": 13,
+          "captured": 5,
+          "falseAlarms": 8,
+          "status": "EVALUATED"
+        },
+        "local": {
+          "n": 62,
+          "positives": 12,
+          "ap": 0.4672490723421574,
+          "brier": 0.14268774065833148,
+          "bss": 0.08945195337938427,
+          "ece": 0.060424731510350146,
+          "recall20": 0.4166666666666667,
+          "k": 13,
+          "captured": 5,
+          "falseAlarms": 8,
+          "status": "EVALUATED"
+        },
+        "climatology": {
+          "n": 62,
+          "positives": 12,
+          "ap": 0.1935483870967742,
+          "brier": 0.15670533936995312,
+          "bss": 0,
+          "ece": 0.02485820630981926,
+          "recall20": 0.25,
+          "k": 13,
+          "captured": 3,
+          "falseAlarms": 10,
+          "status": "EVALUATED"
+        }
+      },
+      "controls": [
+        {
+          "control": "none",
+          "candidate": {
+            "id": "chem-0-thermal",
+            "route": "local",
+            "lag": 0,
+            "model": "thermal"
+          },
+          "metrics": {
+            "n": 62,
+            "positives": 12,
+            "ap": 0.4672490723421574,
+            "brier": 0.14268774065833148,
+            "bss": 0.08945195337938427,
+            "ece": 0.060424731510350146,
+            "recall20": 0.4166666666666667,
+            "k": 13,
+            "captured": 5,
+            "falseAlarms": 8,
+            "status": "EVALUATED"
+          }
+        },
+        {
+          "control": "ablate",
+          "candidate": {
+            "id": "chem-0-thermal",
+            "route": "local",
+            "lag": 0,
+            "model": "thermal"
+          },
+          "metrics": {
+            "n": 62,
+            "positives": 12,
+            "ap": 0.4672490723421574,
+            "brier": 0.14268774065833148,
+            "bss": 0.08945195337938427,
+            "ece": 0.060424731510350146,
+            "recall20": 0.4166666666666667,
+            "k": 13,
+            "captured": 5,
+            "falseAlarms": 8,
+            "status": "EVALUATED"
+          }
+        },
+        {
+          "control": "time-shift",
+          "candidate": {
+            "id": "chem-0-thermal",
+            "route": "local",
+            "lag": 0,
+            "model": "thermal"
+          },
+          "metrics": {
+            "n": 62,
+            "positives": 12,
+            "ap": 0.3780408824795482,
+            "brier": 0.14339268571371683,
+            "bss": 0.08495341454069738,
+            "ece": 0.060194726427824925,
+            "recall20": 0.3333333333333333,
+            "k": 13,
+            "captured": 4,
+            "falseAlarms": 9,
+            "status": "EVALUATED"
+          }
+        }
+      ],
+      "notes": [
+        "化学浓度和白化标签均为合成；未拟合真实珊瑚观测。",
+        "移除化学信息的对照保持赢家的滞后、分区和基础变量；不是因果检验。",
+        "规则模式每策略预算只计候选，负对照另计。",
+        "已冻结的同一候选在测试集评分；不得据此重新选择。"
+      ]
+    },
+    {
+      "version": "coralbleach-compound-v1.1.0",
+      "track": "compound",
+      "dataKind": "synthetic",
+      "seed": 42,
+      "horizon": 14,
+      "budget": 8,
+      "world": "shift",
+      "access": "full",
+      "splits": {
+        "train": {
+          "reefs": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "start": 90,
+          "end": 360
+        },
+        "validation": {
+          "reefs": [
+            8,
+            9
+          ],
+          "start": 435,
+          "end": 525
+        },
+        "test": {
+          "reefs": [
+            10,
+            11
+          ],
+          "start": 600,
+          "end": 690
+        }
+      },
+      "adaptive": {
+        "policy": "adaptive",
+        "log": [
+          {
+            "step": 1,
+            "candidate": {
+              "id": "chem-0-thermal",
+              "route": "local",
+              "lag": 0,
+              "model": "thermal"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 15,
+              "ap": 0.5862523761136229,
+              "brier": 0.16560261547731414,
+              "bss": 0.12613226766745633,
+              "ece": 0.0631390026131401,
+              "recall20": 0.4666666666666667,
+              "k": 13,
+              "captured": 7,
+              "falseAlarms": 6,
+              "status": "EVALUATED"
+            },
+            "utility": 0.49082326785233776,
+            "remaining": 7
+          },
+          {
+            "step": 2,
+            "candidate": {
+              "id": "chem-0-din",
+              "route": "local",
+              "lag": 0,
+              "model": "din"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 15,
+              "ap": 0.31930371503633925,
+              "brier": 0.1892619857294176,
+              "bss": 0.0012842381177419204,
+              "ece": 0.08511042557510035,
+              "recall20": 0.13333333333333333,
+              "k": 13,
+              "captured": 2,
+              "falseAlarms": 11,
+              "status": "EVALUATED"
+            },
+            "utility": 0.20765063705661038,
+            "remaining": 6
+          },
+          {
+            "step": 3,
+            "candidate": {
+              "id": "chem-0-forms",
+              "route": "local",
+              "lag": 0,
+              "model": "forms"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 15,
+              "ap": 0.31984012208340773,
+              "brier": 0.1875739984520279,
+              "bss": 0.010191570952112539,
+              "ece": 0.11850393776177992,
+              "recall20": 0.13333333333333333,
+              "k": 13,
+              "captured": 2,
+              "falseAlarms": 11,
+              "status": "EVALUATED"
+            },
+            "utility": 0.20235233530503777,
+            "remaining": 5
+          },
+          {
+            "step": 4,
+            "candidate": {
+              "id": "chem-0-interactions",
+              "route": "local",
+              "lag": 0,
+              "model": "interactions"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 15,
+              "ap": 0.309137651129399,
+              "brier": 0.1967425501286193,
+              "bss": -0.03818992012098121,
+              "ece": 0.12831260113507206,
+              "recall20": 0.13333333333333333,
+              "k": 13,
+              "captured": 2,
+              "falseAlarms": 11,
+              "status": "EVALUATED"
+            },
+            "utility": 0.18510385583807493,
+            "remaining": 4
+          },
+          {
+            "step": 5,
+            "candidate": {
+              "id": "chem-0-copollution",
+              "route": "local",
+              "lag": 0,
+              "model": "copollution"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 15,
+              "ap": 0.3539339045783788,
+              "brier": 0.19325981332090936,
+              "bss": -0.019811881177016044,
+              "ece": 0.07465366082224192,
+              "recall20": 0.3333333333333333,
+              "k": 13,
+              "captured": 5,
+              "falseAlarms": 8,
+              "status": "EVALUATED"
+            },
+            "utility": 0.24237326575347576,
+            "remaining": 3
+          },
+          {
+            "step": 6,
+            "candidate": {
+              "id": "chem-14-thermal",
+              "route": "local",
+              "lag": 14,
+              "model": "thermal"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 15,
+              "ap": 0.5646491785907093,
+              "brier": 0.16742421268494934,
+              "bss": 0.11651988916442757,
+              "ece": 0.0867999672911486,
+              "recall20": 0.4,
+              "k": 13,
+              "captured": 6,
+              "falseAlarms": 7,
+              "status": "EVALUATED"
+            },
+            "utility": 0.4635770787900049,
+            "remaining": 2
+          },
+          {
+            "step": 7,
+            "candidate": {
+              "id": "chem-30-thermal",
+              "route": "local",
+              "lag": 30,
+              "model": "thermal"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 15,
+              "ap": 0.5888930068384458,
+              "brier": 0.16541716280468216,
+              "bss": 0.12711088208137,
+              "ece": 0.04921623637420616,
+              "recall20": 0.4666666666666667,
+              "k": 13,
+              "captured": 7,
+              "falseAlarms": 6,
+              "status": "EVALUATED"
+            },
+            "utility": 0.49634117816126355,
+            "remaining": 1
+          },
+          {
+            "step": 8,
+            "candidate": {
+              "id": "chem-7-thermal",
+              "route": "local",
+              "lag": 7,
+              "model": "thermal"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 15,
+              "ap": 0.5749880357149809,
+              "brier": 0.16618264156365367,
+              "bss": 0.12307153049671593,
+              "ece": 0.1051767011512851,
+              "recall20": 0.4,
+              "k": 13,
+              "captured": 6,
+              "falseAlarms": 7,
+              "status": "EVALUATED"
+            },
+            "utility": 0.470861374702897,
+            "remaining": 0
+          }
+        ],
+        "winner": {
+          "id": "chem-30-thermal",
+          "route": "local",
+          "lag": 30,
+          "model": "thermal"
+        }
+      },
+      "random": {
+        "policy": "random",
+        "log": [
+          {
+            "step": 1,
+            "candidate": {
+              "id": "chem-7-forms",
+              "route": "local",
+              "lag": 7,
+              "model": "forms"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 15,
+              "ap": 0.40091397913534127,
+              "brier": 0.17282971654458168,
+              "bss": 0.08799560899942727,
+              "ece": 0.05420212134194431,
+              "recall20": 0.3333333333333333,
+              "k": 13,
+              "captured": 5,
+              "falseAlarms": 8,
+              "status": "EVALUATED"
+            },
+            "utility": 0.30365869659466155,
+            "remaining": 7
+          },
+          {
+            "step": 2,
+            "candidate": {
+              "id": "chem-30-din",
+              "route": "local",
+              "lag": 30,
+              "model": "din"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 15,
+              "ap": 0.5990044232997757,
+              "brier": 0.15811510966317324,
+              "bss": 0.16564305502894205,
+              "ece": 0.08512103530515813,
+              "recall20": 0.4666666666666667,
+              "k": 13,
+              "captured": 7,
+              "falseAlarms": 6,
+              "status": "EVALUATED"
+            },
+            "utility": 0.5029226614071575,
+            "remaining": 6
+          },
+          {
+            "step": 3,
+            "candidate": {
+              "id": "chem-14-forms",
+              "route": "local",
+              "lag": 14,
+              "model": "forms"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 15,
+              "ap": 0.5033075183786375,
+              "brier": 0.16336636472497787,
+              "bss": 0.13793272968454773,
+              "ece": 0.0675466888754007,
+              "recall20": 0.4,
+              "k": 13,
+              "captured": 6,
+              "falseAlarms": 7,
+              "status": "EVALUATED"
+            },
+            "utility": 0.40811499824106845,
+            "remaining": 5
+          },
+          {
+            "step": 4,
+            "candidate": {
+              "id": "chem-0-din",
+              "route": "local",
+              "lag": 0,
+              "model": "din"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 15,
+              "ap": 0.31930371503633925,
+              "brier": 0.1892619857294176,
+              "bss": 0.0012842381177419204,
+              "ece": 0.08511042557510035,
+              "recall20": 0.13333333333333333,
+              "k": 13,
+              "captured": 2,
+              "falseAlarms": 11,
+              "status": "EVALUATED"
+            },
+            "utility": 0.20765063705661038,
+            "remaining": 4
+          },
+          {
+            "step": 5,
+            "candidate": {
+              "id": "chem-14-thermal",
+              "route": "local",
+              "lag": 14,
+              "model": "thermal"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 15,
+              "ap": 0.5646491785907093,
+              "brier": 0.16742421268494934,
+              "bss": 0.11651988916442757,
+              "ece": 0.0867999672911486,
+              "recall20": 0.4,
+              "k": 13,
+              "captured": 6,
+              "falseAlarms": 7,
+              "status": "EVALUATED"
+            },
+            "utility": 0.4635770787900049,
+            "remaining": 3
+          },
+          {
+            "step": 6,
+            "candidate": {
+              "id": "chem-0-copollution",
+              "route": "local",
+              "lag": 0,
+              "model": "copollution"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 15,
+              "ap": 0.3539339045783788,
+              "brier": 0.19325981332090936,
+              "bss": -0.019811881177016044,
+              "ece": 0.07465366082224192,
+              "recall20": 0.3333333333333333,
+              "k": 13,
+              "captured": 5,
+              "falseAlarms": 8,
+              "status": "EVALUATED"
+            },
+            "utility": 0.24237326575347576,
+            "remaining": 2
+          },
+          {
+            "step": 7,
+            "candidate": {
+              "id": "chem-0-forms",
+              "route": "local",
+              "lag": 0,
+              "model": "forms"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 15,
+              "ap": 0.31984012208340773,
+              "brier": 0.1875739984520279,
+              "bss": 0.010191570952112539,
+              "ece": 0.11850393776177992,
+              "recall20": 0.13333333333333333,
+              "k": 13,
+              "captured": 2,
+              "falseAlarms": 11,
+              "status": "EVALUATED"
+            },
+            "utility": 0.20235233530503777,
+            "remaining": 1
+          },
+          {
+            "step": 8,
+            "candidate": {
+              "id": "chem-7-interactions",
+              "route": "local",
+              "lag": 7,
+              "model": "interactions"
+            },
+            "metrics": {
+              "n": 62,
+              "positives": 15,
+              "ap": 0.3869359892889304,
+              "brier": 0.1741692293981273,
+              "bss": 0.08092713935971585,
+              "ece": 0.056683021053818276,
+              "recall20": 0.4,
+              "k": 13,
+              "captured": 6,
+              "falseAlarms": 7,
+              "status": "EVALUATED"
+            },
+            "utility": 0.2885147703791031,
+            "remaining": 0
+          }
+        ],
+        "winner": {
+          "id": "chem-30-din",
+          "route": "local",
+          "lag": 30,
+          "model": "din"
+        }
+      },
+      "final": {
+        "adaptive": {
+          "n": 62,
+          "positives": 10,
+          "ap": 0.4305906812485759,
+          "brier": 0.15703945077496664,
+          "bss": 0.02145106528989449,
+          "ece": 0.18239197299620596,
+          "recall20": 0.4,
+          "k": 13,
+          "captured": 4,
+          "falseAlarms": 9,
+          "status": "EVALUATED"
+        },
+        "random": {
+          "n": 62,
+          "positives": 10,
+          "ap": 0.3052282010144574,
+          "brier": 0.17147958757321974,
+          "bss": -0.0685287481344865,
+          "ece": 0.20947413792955855,
+          "recall20": 0.5,
+          "k": 13,
+          "captured": 5,
+          "falseAlarms": 8,
+          "status": "EVALUATED"
+        },
+        "local": {
+          "n": 62,
+          "positives": 10,
+          "ap": 0.41385780628040697,
+          "brier": 0.15826502967425288,
+          "bss": 0.013814201302014939,
+          "ece": 0.18434508549766937,
+          "recall20": 0.4,
+          "k": 13,
+          "captured": 4,
+          "falseAlarms": 9,
+          "status": "EVALUATED"
+        },
+        "climatology": {
+          "n": 62,
+          "positives": 10,
+          "ap": 0.16129032258064516,
+          "brier": 0.16048195977188354,
+          "bss": 0,
+          "ece": 0.15876462247429998,
+          "recall20": 0.3,
+          "k": 13,
+          "captured": 3,
+          "falseAlarms": 10,
+          "status": "EVALUATED"
+        }
+      },
+      "controls": [
+        {
+          "control": "none",
+          "candidate": {
+            "id": "chem-30-thermal",
+            "route": "local",
+            "lag": 30,
+            "model": "thermal"
+          },
+          "metrics": {
+            "n": 62,
+            "positives": 10,
+            "ap": 0.4305906812485759,
+            "brier": 0.15703945077496664,
+            "bss": 0.02145106528989449,
+            "ece": 0.18239197299620596,
+            "recall20": 0.4,
+            "k": 13,
+            "captured": 4,
+            "falseAlarms": 9,
+            "status": "EVALUATED"
+          }
+        },
+        {
+          "control": "ablate",
+          "candidate": {
+            "id": "chem-30-thermal",
+            "route": "local",
+            "lag": 30,
+            "model": "thermal"
+          },
+          "metrics": {
+            "n": 62,
+            "positives": 10,
+            "ap": 0.4305906812485759,
+            "brier": 0.15703945077496664,
+            "bss": 0.02145106528989449,
+            "ece": 0.18239197299620596,
+            "recall20": 0.4,
+            "k": 13,
+            "captured": 4,
+            "falseAlarms": 9,
+            "status": "EVALUATED"
+          }
+        },
+        {
+          "control": "time-shift",
+          "candidate": {
+            "id": "chem-30-thermal",
+            "route": "local",
+            "lag": 30,
+            "model": "thermal"
+          },
+          "metrics": {
+            "n": 62,
+            "positives": 10,
+            "ap": 0.4099425160454572,
+            "brier": 0.15847665192670382,
+            "bss": 0.012495534376762096,
+            "ece": 0.18370076485248538,
+            "recall20": 0.4,
+            "k": 13,
+            "captured": 4,
+            "falseAlarms": 9,
+            "status": "EVALUATED"
+          }
+        }
+      ],
+      "notes": [
+        "化学浓度和白化标签均为合成；未拟合真实珊瑚观测。",
+        "移除化学信息的对照保持赢家的滞后、分区和基础变量；不是因果检验。",
+        "规则模式每策略预算只计候选，负对照另计。",
+        "已冻结的同一候选在测试集评分；不得据此重新选择。"
+      ]
+    }
+  ]
+}
