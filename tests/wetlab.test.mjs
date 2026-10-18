@@ -9,9 +9,9 @@ test('wet simulation is deterministic, uses independent tank splits and responds
 test('invalid design and under-replication are rejected before generating labels',()=>{
  for(const change of [{replicates:3},{seed:NaN},{replicates:8.5},{groups:defaults().slice(0,2)}])assert.throws(()=>validateDesign({...design(),...change}));const d=design();d.groups[0].temp=100;assert.throws(()=>simulateWet(d));
 });
-test('all 32 scientific model schemes fit default design and have unique illustration assets',()=>{
- const data=simulateWet(design()),art=[];assert.equal(WET_POOL.length,32);assert.equal(new Set(WET_POOL.map(m=>m.family)).size,8);
- for(const m of WET_POOL){const r=new WetTools(data).evaluate(m.id);assert.equal(r.status,'evaluated',m.id);assert.ok(Number.isFinite(r.validation.rmse));assert.ok(r.features.length>0);art.push(fs.readFileSync(new URL('../dist/illustrations/'+m.id+'.svg',import.meta.url),'utf8'));}assert.equal(new Set(art).size,32);
+test('all 96 scientific model schemes fit default design and have unique illustration assets',()=>{
+ const data=simulateWet(design()),art=[];assert.equal(WET_POOL.length,96);assert.equal(new Set(WET_POOL.map(m=>m.family)).size,24);
+ for(const m of WET_POOL){const r=new WetTools(data).evaluate(m.id);assert.equal(r.status,'evaluated',m.id);assert.ok(Number.isFinite(r.validation.rmse));assert.ok(r.features.length>0);const svg=fs.readFileSync(new URL('../dist/illustrations/'+m.id+'.svg',import.meta.url),'utf8');assert.ok(!svg.includes('undefined'));art.push(svg);}assert.equal(new Set(art).size,96);
 });
 test('sealed wet test values cannot change training summaries, validation or selected winner',()=>{
  const a=simulateWet(design()),b=structuredClone(a);for(const r of b.rows)if(r.split==='test'){r.y=100-r.y;r.x.temp=999;r.time.forEach(t=>t.bleaching=999);}
