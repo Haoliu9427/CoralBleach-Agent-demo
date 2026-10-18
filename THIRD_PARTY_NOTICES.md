@@ -7,3 +7,5 @@
 
 5. Leaflet 1.9.4（BSD-2-Clause），来源 https://leafletjs.com/ ，vendored 文件位于 dist/vendor，完整许可证见 dist/vendor/LEAFLET-LICENSE.txt。
 6. Allen Coral Atlas 官方地貌 WMS 与定位入口，https://allencoralatlas.org/resources/ 。地图、测深及统计为 © 2018–2023 Allen Coral Atlas Partnership and Arizona State University，CC BY 4.0；卫星影像另有许可，本工程未捆绑影像或全球数据。公开服务访问受提供方控制，GetMap 的 403 核验记录见 docs/RESEARCH_UPDATE.md。
+
+7. v1.3 虚拟实验台的水槽、珊瑚、试剂瓶与模型方案图标均为本项目原创可编辑 SVG。源文件为 dist/wetlab-art.js；32 张独立图标位于 dist/illustrations，运行 node scripts/wetlab-art.mjs 可重新生成。遵循本项目 MIT 许可。参考页面仅用于理解交互形式，未复制其品牌、插画或代码。

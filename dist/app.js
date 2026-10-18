@@ -1,3 +1,4 @@
+import {setupWetLab} from './wetlab-ui.js';
 import {setupModels} from './model-setup.js';
 import {createReefMap} from './reef-map.js';
 import {setupCompoundUI} from './compound-ui.js';
@@ -51,6 +52,8 @@ const win=result.adaptive.winner,delta=(f.ap??0)-(result.final.local.ap??0);$('f
 $('run-status').textContent=`计算完成 · ${result.adaptive.log.length} 次自适应实验 + ${result.random.log.length} 次同预算随机实验 · 两个候选锁定后才开启封存测试集。`;}
 let currentLLM=null,activeWorker=null;
 const modelSetup=setupModels();
+setupWetLab({modelSetup,notify,download});
+document.querySelectorAll('[data-lab-view]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-lab-view]').forEach(n=>n.classList.toggle('active',n===b));$('wetlab-root').classList.toggle('hidden',b.dataset.labView!=='wet');$('computational-lab').classList.toggle('hidden',b.dataset.labView!=='computational');});
 $('run').onclick=async()=>{const seed=Number($('seed').value);if(!Number.isInteger(seed)||seed<1||seed>999999){notify('请输入 1–999999 的整数种子。');return;}const config={seed,horizon:Number($('lab-horizon').value),budget:Number($('budget').value),mode:$('planner-mode').value,question:$('research-question').value,...compoundUI.config()};
 let connection=null;
 if(config.mode==='llm'){try{connection=await modelSetup.prepare(config.budget);config.modelId=connection.modelId;config.model=connection.model;config.runId=connection.runId;config.transport=connection.transport;}catch(error){$('provider-status').textContent=error.message;notify(error.message);return;}}

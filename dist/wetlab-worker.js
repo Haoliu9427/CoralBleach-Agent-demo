@@ -1,0 +1,3 @@
+import {simulateWet,wetRule,wetAgent,WET_SYSTEM} from './wetlab-engine.js';
+import {chat,postAPI} from './llm-client.js';
+self.onmessage=async({data:{design,budget,mode,connection}})=>{try{const data=simulateWet(design),progress=p=>self.postMessage({progress:p});const result=mode==='llm'?await wetAgent(data,budget,messages=>connection.transport==='modelscope-browser'?chat(connection.credentials,[{role:'system',content:WET_SYSTEM},...messages]):postAPI('plan',{modelId:connection.modelId,runId:connection.runId,messages}),progress):wetRule(data,budget,progress);self.postMessage({result});}catch(error){self.postMessage({error:error.message});}};

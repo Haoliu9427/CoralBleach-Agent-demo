@@ -1,3 +1,4 @@
+import {WET_SYSTEM,TUTOR_SYSTEM} from '../dist/wetlab-engine.js';
 import {randomUUID} from 'node:crypto';
 import {catalog,publicCatalog,chat,SYSTEM} from './llm.mjs';
 const runs=new Map();
@@ -13,13 +14,17 @@ export async function api(req,res){
     const data=await body(req),config=entries.find(e=>e.id===data.modelId);
     if(!config)throw Error('未配置可用规划模型；请使用GlobalHAB兼容的服务端配置');
     if(req.url==='/api/probe'){const r=await chat(config,[{role:'user',content:'请只回复 OK。'}],{maxTokens:256});if(r.text.replace(/[.。]/g,'').trim()!=='OK')throw Error('连接请求未返回预期的OK');json(res,200,{ok:true,model:r.model,usage:r.usage});return true;}
-    if(req.url==='/api/runs'){if(!Number.isInteger(data.budget)||data.budget<4||data.budget>24)throw Error('预算不合法');for(const [k,v] of runs)if(Date.now()-v.started>300000)runs.delete(k);if(runs.size>=20)throw Error('并发运行过多');const runId=randomUUID();runs.set(runId,{modelId:data.modelId,limit:data.budget+5,calls:0,started:Date.now(),closed:false});json(res,200,{runId,planningLimit:data.budget+5,experimentBudget:data.budget});return true;}
+    if(req.url==='/api/runs'){if(!Number.isInteger(data.budget)||data.budget<4||data.budget>24)throw Error('预算不合法');for(const [k,v] of runs)if(Date.now()-v.started>300000)runs.delete(k);if(runs.size>=20)throw Error('并发运行过多');const runId=randomUUID();runs.set(runId,{task:['field','wet','wet-tutor'].includes(data.task)?data.task:'field',modelId:data.modelId,limit:data.budget+5,calls:0,started:Date.now(),closed:false});json(res,200,{runId,planningLimit:data.budget+5,experimentBudget:data.budget});return true;}
     const run=runs.get(data.runId);if(!run||run.modelId!==data.modelId)throw Error('运行会话无效');
     if(req.url==='/api/plan'){
       if(run.closed||run.calls>=run.limit||Date.now()-run.started>240000)throw Error('规划调用或时间预算已耗尽');
       if(!Array.isArray(data.messages)||data.messages.some(m=>!['user','assistant'].includes(m.role)||typeof m.content!=='string'))throw Error('消息格式不合法');
       run.calls++;
-      const result=await chat(config,[{role:'system',content:SYSTEM},...data.messages]);json(res,200,result);return true;
+      const result=await chat(config,[{role:'system',content:run.task==='wet'?WET_SYSTEM:SYSTEM},...data.messages]);json(res,200,result);return true;
+    }
+    if(req.url==='/api/tutor'){
+      if(run.task!=='wet-tutor'||run.closed||Date.now()-run.started>60000)throw Error('导师会话无效或已使用');run.closed=true;
+      const result=await chat(config,[{role:'system',content:TUTOR_SYSTEM},{role:'user',content:JSON.stringify({question:String(data.question||'').slice(0,1200),context:data.context}).slice(0,42000)}],{maxTokens:1500});json(res,200,result);return true;
     }
     if(req.url==='/api/interpret'){
       if(run.closed)throw Error('本轮已解读');run.closed=true;

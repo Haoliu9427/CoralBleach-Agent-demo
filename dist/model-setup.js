@@ -1,3 +1,4 @@
+import {TUTOR_SYSTEM} from './wetlab-engine.js';
 import {MODEL_PRESETS,modelScopeConfig,chat,listModelScopeModels,postAPI,INTERPRET_SYSTEM} from './llm-client.js';
 export function setupModels(){
   const $=id=>document.getElementById(id),selector=$('platform-model'),status=$('provider-status');
@@ -32,10 +33,14 @@ export function setupModels(){
   if(['localhost','127.0.0.1','[::1]'].includes(location.hostname))fetch('/api/models').then(r=>r.ok?r.json():{}).then(d=>{serverModels=d.models||[];for(const m of serverModels)selector.add(new Option('本地配置 · '+m.name,'server:'+m.id));}).catch(()=>{});
   sync();
   return {
-    async prepare(budget){
-      if(busy)throw Error('请等待连接检查完成。');
+    async prepare(budget,task='field'){
+      if(busy||locked)throw Error('请等待当前模型请求或实验完成。');
       if(verified!==revision){$('model-config').open=true;$('modelscope-token').focus();throw Error('请先在上方填写 ModelScope Token，并点击“检查连接并启用”。');}
-      const c=active();if(c.transport==='server'){const r=await postAPI('runs',{modelId:c.modelId,budget});c.runId=r.runId;}else c.runId=crypto.randomUUID();return c;
+      const c=active();if(c.transport==='server'){const r=await postAPI('runs',{modelId:c.modelId,budget,task});c.runId=r.runId;}else c.runId=crypto.randomUUID();return c;
+    },
+    async assist(question,context){
+      const c=await this.prepare(4,'wet-tutor');
+      return c.transport==='server'?postAPI('tutor',{modelId:c.modelId,runId:c.runId,question,context}):chat(c.credentials,[{role:'system',content:TUTOR_SYSTEM},{role:'user',content:JSON.stringify({question:String(question).slice(0,1200),context}).slice(0,42000)}],{maxTokens:1500});
     },
     lock(value){locked=value;buttons();$('planner-mode').disabled=value;},
     async interpret(result){
