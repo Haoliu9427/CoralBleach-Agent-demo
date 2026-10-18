@@ -10,7 +10,7 @@ Node.js20+，运行 npm start；打开 http://127.0.0.1:4173。可通过 PORT �
 
 本包提供 GitHub Pages 工作流：仓库创建并推送后，在 Settings → Pages → Source 选择 GitHub Actions，再从 Actions 手动运行 Deploy static demo。GitHub Pages 只发布dist目录。无需任何LLM密钥。CI会检查代码和静态下载链接。
 
-本次 Sites 托管为当前账号的私有预览；.openai/hosting.json记录其站点身份，不应把这个ID用于其他人的新站。其他用户可直接部署dist或为自己的Sites项目生成新身份。
+本次 Sites 托管为公开演示（用户已授权任何持有链接者访问）；.openai/hosting.json记录其站点身份，不应把这个ID用于其他人的新站。其他用户可直接部署dist或为自己的Sites项目生成新身份。
 
 ## 发布前
 
