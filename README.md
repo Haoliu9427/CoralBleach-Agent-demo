@@ -4,7 +4,7 @@
 
 **热应激 ≠ 白化观测 ≠ 珊瑚死亡。** 地图采用真实地理底图，站点、序列、调查及随访值全部为合成演示。没有接入真实 NOAA 数据，也没有证明全球预测能力。
 
-在线演示：https://coralbleach-agent-demo.irisliu9427.chatgpt.site （公开访问，合成数据）。
+在线演示：[CoralBleach-Agent](https://haoliu9427.github.io/CoralBleach-Agent-demo/)（免费公开访问，合成数据）。
 
 ## 快速运行
 
@@ -52,7 +52,7 @@ node scripts/export-data.mjs
 | docs | 数据字典、模型卡、迁移和部署说明 |
 | reference | 原 GlobalHAB 启发式代码快照（MIT） |
 
-静态部署与可选 GitHub Pages 步骤见 [部署说明](docs/DEPLOYMENT.md)。扩展模型、预算口径与实现范围见 [架构与迁移](docs/ARCHITECTURE.md)。科学定义见 [完整文档](dist/scientific-definition.md)。
+GitHub Pages 自动发布与本地部署步骤见 [部署说明](docs/DEPLOYMENT.md)。扩展模型、预算口径与实现范围见 [架构与迁移](docs/ARCHITECTURE.md)。科学定义见 [完整文档](dist/scientific-definition.md)。
 
 ## 许可与来源
 
