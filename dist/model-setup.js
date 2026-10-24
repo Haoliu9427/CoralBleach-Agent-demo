@@ -1,3 +1,4 @@
+import {getLanguage} from './i18n.js';
 import {TUTOR_SYSTEM} from './wetlab-engine.js';
 import {MODEL_PRESETS,modelScopeConfig,chat,listModelScopeModels,postAPI,INTERPRET_SYSTEM} from './llm-client.js';
 export function setupModels(){
@@ -15,7 +16,7 @@ export function setupModels(){
   function buttons(){for(const id of ['probe','load-models','clear-token','platform-model','custom-model','modelscope-token'])$(id).disabled=busy||locked;}
   selector.onchange=invalidate;$('custom-model').oninput=invalidate;$('modelscope-token').oninput=invalidate;
   $('clear-token').onclick=()=>{$('modelscope-token').value='';invalidate();status.textContent='Token 已清除；无密钥规则演示仍可运行。';};
-  function active(){const s=server();return s?{transport:'server',model:s.model,modelId:s.id,connectionId:revision}:{transport:'modelscope-browser',credentials:modelScopeConfig(model(),$('modelscope-token').value),model:model(),modelId:model(),connectionId:revision};}
+  function active(){const s=server(),language=getLanguage();return s?{transport:'server',language,model:s.model,modelId:s.id,connectionId:revision}:{transport:'modelscope-browser',language,credentials:{...modelScopeConfig(model(),$('modelscope-token').value),language},model:model(),modelId:model(),connectionId:revision};}
   $('probe').onclick=async()=>{
     busy=true;buttons();const stamp=revision;status.textContent='正在向所选模型发送小额生成请求…';
     try{const c=active();const r=c.transport==='server'?await postAPI('probe',{modelId:c.modelId}):await chat(c.credentials,[{role:'user',content:'请只回复 OK。'}],{maxTokens:256});
@@ -36,16 +37,16 @@ export function setupModels(){
     async prepare(budget,task='field'){
       if(busy||locked)throw Error('请等待当前模型请求或实验完成。');
       if(verified!==revision){$('model-config').open=true;$('modelscope-token').focus();throw Error('请先在上方填写 ModelScope Token，并点击“检查连接并启用”。');}
-      const c=active();if(c.transport==='server'){const r=await postAPI('runs',{modelId:c.modelId,budget,task});c.runId=r.runId;}else c.runId=crypto.randomUUID();return c;
+      const c=active();if(c.transport==='server'){const r=await postAPI('runs',{modelId:c.modelId,budget,task,language:c.language});c.runId=r.runId;}else c.runId=crypto.randomUUID();return c;
     },
     async assist(question,context){
       const c=await this.prepare(4,'wet-tutor');
-      return c.transport==='server'?postAPI('tutor',{modelId:c.modelId,runId:c.runId,question,context}):chat(c.credentials,[{role:'system',content:TUTOR_SYSTEM},{role:'user',content:JSON.stringify({question:String(question).slice(0,1200),context}).slice(0,42000)}],{maxTokens:1500});
+      return c.transport==='server'?postAPI('tutor',{modelId:c.modelId,runId:c.runId,question,context,language:c.language}):chat(c.credentials,[{role:'system',content:TUTOR_SYSTEM},{role:'user',content:JSON.stringify({question:String(question).slice(0,1200),context}).slice(0,42000)}],{maxTokens:1500});
     },
     lock(value){locked=value;buttons();$('planner-mode').disabled=value;},
     async interpret(result){
       if(result.connectionId!==revision||verified!==revision)throw Error('连接配置已改变，请重新运行实验后解读。');
-      const c=active();return c.transport==='server'?postAPI('interpret',{runId:result.runId,modelId:result.modelId,summary:result.llm.final}):chat(c.credentials,[{role:'system',content:INTERPRET_SYSTEM},{role:'user',content:JSON.stringify(result.llm.final).slice(0,14000)}],{maxTokens:900});
+      const c=active();return c.transport==='server'?postAPI('interpret',{runId:result.runId,modelId:result.modelId,summary:result.llm.final,language:c.language}):chat(c.credentials,[{role:'system',content:INTERPRET_SYSTEM},{role:'user',content:JSON.stringify(result.llm.final).slice(0,14000)}],{maxTokens:900});
     }
   };
 }

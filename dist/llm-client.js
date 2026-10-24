@@ -8,6 +8,7 @@ export function modelScopeConfig(model,token){
 }
 export function visibleText(message){const c=message?.content;if(typeof c==='string')return c.trim();if(Array.isArray(c))return c.map(p=>typeof p==='string'?p:p?.text||p?.content||'').filter(p=>typeof p==='string').join('\n').trim();return '';}
 export function chatPayload(config,messages,maxTokens){
+  if(config.language==='en')messages=messages.map(m=>m.role==='system'?{...m,content:m.content+'\nResponse language: English. This replaces earlier Chinese-language wording only. Keep all scientific rules, JSON keys, tool names, IDs and numeric values unchanged. Write rationales and explanations in concise English.'}:m);
   const payload={model:config.model,messages,temperature:0,max_tokens:maxTokens,stream:false};
   const host=new URL(config.base_url).hostname;
   if(host==='api-inference.modelscope.cn'){

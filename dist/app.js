@@ -1,3 +1,4 @@
+import {initI18n,localize,getLanguage} from './i18n.js';
 import {setupWetLab} from './wetlab-ui.js';
 import {setupModels} from './model-setup.js';
 import {createReefMap} from './reef-map.js';
@@ -6,6 +7,7 @@ import {chemicalModels,accessLabels,worldLabels} from './research.js';
 import {SITES} from './data.js';
 import {comparisonVisuals,budgetVisual} from './visuals.js';
 import {scenarioRisk,rng,VERSION} from './engine.js';
+initI18n();
 let geo={type:'FeatureCollection',features:[]};
 try{const r=await fetch('land.geojson');if(r.ok)geo=await r.json();}catch(error){console.error(error);}
 const $=id=>document.getElementById(id), state={horizon:14,basin:'all',site:SITES[0],layer:'risk',delta:{heat:0,light:0,mixing:0},run:null};
@@ -15,7 +17,7 @@ const route={local:'局地',neighbor:'邻域',directional:'方向性'},model={ad
 const visible=()=>SITES.filter(s=>state.basin==='all'||s.basin===state.basin);
 const risk=s=>scenarioRisk(s,state.horizon);
 function notify(text){$('toast').textContent=text;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),2800);}
-function download(name,text,type='application/json;charset=utf-8'){const url=URL.createObjectURL(new Blob([text],{type})),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+function download(name,text,type='application/json;charset=utf-8'){if(getLanguage()==='en'&&(name.endsWith('.md')||type.includes('csv')))text=text.split('\n').map(localize).join('\n');const url=URL.createObjectURL(new Blob([text],{type})),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 function evidence(s){return s.evidence==='A'?`A · 模拟调查 ${s.bleaching}%`:s.evidence==='B'?'B · 模拟事件报告':'U · 未调查 / 未知';}
 function outcome(s){return s.outcome?`${s.outcome}示例`:'未评估';}
 function next(s){return s.evidence==='U'?'补充白化调查，记录类群、深度及样本量':s.evidence==='B'?'核对报告来源，并用标准化样带复核':'安排重复调查，分别记录白化、恢复与死亡';}

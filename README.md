@@ -6,7 +6,11 @@
 
 在线演示：[CoralBleach-Agent](https://haoliu9427.github.io/CoralBleach-Agent-demo/)（免费公开访问，合成数据）。
 
-## AI 实验台 · v1.4
+## 中英双语 · v1.5
+
+左下角「中文」「EN」切换整站语言，保留当前实验进度、结果与连接设置。支持英文模型搜索，后续大模型解释随当前语言发送请求。[直接打开英文版](https://haoliu9427.github.io/CoralBleach-Agent-demo/?lang=en#overview)。原始审计 JSON 保持原样，科学问题定义下载文件仍为中文。详见 [Language support](docs/LANGUAGES.md)。
+
+## AI 实验台
 
 打开「Agent 实验室」即可进入虚拟湿实验：选择三种珊瑚形态、点击或拖入试剂、编辑处理组、观察合成培养过程。右侧有六步实验讲解和基于当前实验上下文的 ModelScope Agent 导师。珊瑚使用带表面纹理的生成插画，水槽、试剂和算法图采用可编辑 SVG；96 个模型方案各有独立示意图。培养播放默认约 45 秒，支持暂停、0.25–4 倍速、逐日回看和终点查看。
 

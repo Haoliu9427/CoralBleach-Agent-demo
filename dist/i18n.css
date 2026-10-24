@@ -1,0 +1,36 @@
+.language-switch{position:fixed;left:22px;bottom:17px;display:flex;gap:5px;padding:5px;background:#fff;border:1px solid #cbded9;border-radius:9px;z-index:1000;box-shadow:0 3px 15px #123d3610}
+.language-switch button{min-width:69px;padding:6px 13px;background:transparent;border-radius:5px;color:#52726c;font-size:12px;line-height:1.5}
+.language-switch button[aria-pressed="true"]{background:#126e65;color:#fff;font-weight:600}
+.language-switch button:focus-visible{outline:2px solid #e98066;outline-offset:2px}
+.sidebar .side-note{margin-bottom:56px}
+html[lang="en"] .nav{font-size:12px;line-height:1.45}
+html[lang="en"] .nav span{flex-shrink:0}
+html[lang="en"] .nav small{display:none}
+html[lang="en"] .page-heading h1{font-size:clamp(25px,2.4vw,36px);line-height:1.2;max-width:930px;letter-spacing:-.6px}
+html[lang="en"] .lead{max-width:950px;line-height:1.7}
+html[lang="en"] .stat .label{min-height:36px;line-height:1.4}
+html[lang="en"] .stat .note{line-height:1.55}
+html[lang="en"] .wet-section-title h2{font-size:clamp(23px,2.4vw,34px)}
+html[lang="en"] .wet-section-title h3{font-size:21px;line-height:1.3}
+html[lang="en"] .wet-section-title{gap:18px;flex-wrap:wrap}
+html[lang="en"] .specimen span{font-size:11px;line-height:1.3}
+html[lang="en"] .specimen small{font-size:9px;line-height:1.4}
+html[lang="en"] .reagent span{font-size:11px}
+html[lang="en"] .reagent small{font-size:8px;white-space:normal}
+html[lang="en"] .wet-readouts small{font-size:10px;min-height:31px;line-height:1.5}
+html[lang="en"] .wet-playback{gap:6px;flex-wrap:wrap}
+html[lang="en"] .wet-stage-actions{flex-wrap:wrap}
+html[lang="en"] .wet-model-card b{line-height:1.45;min-height:38px}
+html[lang="en"] .wet-model-card small{line-height:1.5}
+html[lang="en"] .wet-model-card em{line-height:1.5}
+html[lang="en"] .wet-model-detail{align-items:start}
+html[lang="en"] .wet-guide h4{line-height:1.4}
+html[lang="en"] .wet-chart-grid svg text{font-size:8px}
+html[lang="en"] .orchestrator-flow b{line-height:1.4}
+html[lang="en"] .orchestrator-flow span{line-height:1.6}
+html[lang="en"] .risk-title{font-size:11px}
+html[lang="en"] .evidence-row>span{min-width:100px;font-size:10px}
+html[lang="en"] .evidence-row>b{font-size:11px}
+html[lang="en"] .atlas-config select{max-width:100%}
+@media(max-width:1100px){.sidebar .side-note{margin-bottom:0}.language-switch{left:14px;bottom:14px}body{padding-bottom:64px}html[lang="en"] .nav small{display:none}}
+@media(max-width:700px){.language-switch button{min-width:53px}.language-switch{bottom:10px;left:10px}.wet-library-filters{grid-template-columns:1fr!important}html[lang="en"] .layer-tab{font-size:11px;padding:9px 7px}html[lang="en"] .nav{font-size:10px}html[lang="en"] .page-heading h1{font-size:27px}html[lang="en"] .wet-model-detail{flex-wrap:wrap}}
